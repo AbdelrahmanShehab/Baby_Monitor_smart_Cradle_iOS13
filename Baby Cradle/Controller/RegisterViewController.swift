@@ -41,6 +41,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+        
         // Corner Radius for IBOutlets
         registerView.layer.cornerRadius = 10
         registerButton.layer.cornerRadius = 5

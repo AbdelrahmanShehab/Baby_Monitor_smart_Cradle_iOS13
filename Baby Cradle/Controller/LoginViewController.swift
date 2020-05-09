@@ -53,11 +53,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+
         appNameLabel.text = K.appName
         // Corner Radius for IBOutlets
         loginView.layer.cornerRadius = 10
         loginButton.layer.cornerRadius = 5
-        
+
         // Delegatation Text Fields
         loginEmailTextField.delegate = self
         loginPasswordTextField.delegate = self
@@ -65,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //Change the Name of TextField Placeholder
         loginEmailTextField.setPlaceHolder(with: "E-mail")
         loginPasswordTextField.setPlaceHolder(with: "Password")
-        
+
         // Setting The Gradiant Colors for Views
         view.setGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.green)
         loginView.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.lightGreen)
@@ -76,4 +78,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 
 }
+
 
