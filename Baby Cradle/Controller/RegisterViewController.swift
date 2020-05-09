@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var registerButton: UIButton!
@@ -32,6 +32,11 @@ class RegisterViewController: UIViewController {
 
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        registerEmailTextField.endEditing(true)
+        registerPasswordTextField.endEditing(true)
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,16 +45,19 @@ class RegisterViewController: UIViewController {
         registerView.layer.cornerRadius = 10
         registerButton.layer.cornerRadius = 5
 
+        // Delegation of Text Fields
+        registerEmailTextField.delegate = self
+        registerPasswordTextField.delegate = self
+
         //Change the Name of TextField Placeholder
-        registerEmailTextField.attributedPlaceholder = NSAttributedString(string: "New E-mail",
-                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        registerPasswordTextField.attributedPlaceholder = NSAttributedString(string: "New Passowrd",
-                                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        registerEmailTextField.setPlaceHolder(with: "New E-mail")
+        registerPasswordTextField.setPlaceHolder(with: "New Password")
 
         // Setting The Gradiant Colors for Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
         registerView.setTreboGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.blue22)
         registerButton.setGradientBackground(colorOne: K.BrandColors.purple22, colorTwo: K.BrandColors.blueGreen)
+       
     }
     
 

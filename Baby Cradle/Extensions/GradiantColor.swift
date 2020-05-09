@@ -36,13 +36,13 @@ extension UIView {
     }
 
     func setShadow() {
-        let viewCard = UIView()
-        viewCard.layer.shadowColor = UIColor.black.cgColor
-        viewCard.layer.shadowOpacity = 1
-        viewCard.layer.shadowOffset = .zero
+
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
 //        viewCard.layer.shadowRadius = 10
-        viewCard.layer.shadowPath = UIBezierPath(rect: viewCard.bounds).cgPath
-        viewCard.layer.shouldRasterize = true
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
 
     }
 }

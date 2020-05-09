@@ -11,6 +11,7 @@
 		632396A32466D7F600EB5A2C /* FanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A22466D7F600EB5A2C /* FanModel.swift */; };
 		632396A52466DDB500EB5A2C /* SoundDetectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */; };
 		632396A72466DF8500EB5A2C /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A62466DF8500EB5A2C /* StatusModel.swift */; };
+		632396A924672CFB00EB5A2C /* TextFieldAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A824672CFB00EB5A2C /* TextFieldAttribute.swift */; };
 		632D3E5F245461590061A531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D3E5E245461590061A531 /* AppDelegate.swift */; };
 		632D3E61245461590061A531 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D3E60245461590061A531 /* SceneDelegate.swift */; };
 		632D3E63245461590061A531 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D3E62245461590061A531 /* LoginViewController.swift */; };
@@ -32,6 +33,7 @@
 		632396A22466D7F600EB5A2C /* FanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanModel.swift; sourceTree = "<group>"; };
 		632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundDetectionModel.swift; sourceTree = "<group>"; };
 		632396A62466DF8500EB5A2C /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		632396A824672CFB00EB5A2C /* TextFieldAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAttribute.swift; sourceTree = "<group>"; };
 		632D3E5B245461590061A531 /* Baby Cradle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Baby Cradle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		632D3E5E245461590061A531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		632D3E60245461590061A531 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				63D3AC1824570B3F00070A95 /* GradiantColor.swift */,
+				632396A824672CFB00EB5A2C /* TextFieldAttribute.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				632D3E63245461590061A531 /* LoginViewController.swift in Sources */,
 				632396A32466D7F600EB5A2C /* FanModel.swift in Sources */,
 				632396A52466DDB500EB5A2C /* SoundDetectionModel.swift in Sources */,
+				632396A924672CFB00EB5A2C /* TextFieldAttribute.swift in Sources */,
 				63D3AC1924570B3F00070A95 /* GradiantColor.swift in Sources */,
 				63FB8CCC2455CE0100AEAD39 /* BabyCradleViewController.swift in Sources */,
 				632D3E5F245461590061A531 /* AppDelegate.swift in Sources */,
