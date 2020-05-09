@@ -31,6 +31,22 @@ struct Motor {
         }
     }
 
+    // Setting level Degree DATA
+    func setMotorSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
+        slider.value = roundf(slider.value)
+
+        if slider.value == 1 {
+            label.text = "Low"
+            ref.setValue(1)
+        } else if slider.value == 2 {
+            label.text = "Medium"
+            ref.setValue(2)
+        } else {
+            label.text = "High"
+            ref.setValue(3)
+        }
+    }
+
     // Featching DATA
     func observeMotorStates(ref: DatabaseReference!, button: UIButton) {
 
@@ -49,7 +65,7 @@ struct Motor {
 
     }
 
-    // Fetching Level Data
+    // Fetching Level Degree Data
     func observeMotorLevel(ref: DatabaseReference! , slider:UISlider) {
         ref.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {

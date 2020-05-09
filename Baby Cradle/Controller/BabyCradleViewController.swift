@@ -12,6 +12,15 @@ import MBCircularProgressBar
 
 class BabyCradleViewController: UIViewController {
 
+    var motor = Motor()
+    var fan = Fan()
+    var soundDetection = SoundDetection()
+    var status = Status()
+    var refMotor: DatabaseReference!
+    var refFan: DatabaseReference!
+    var refStatus: DatabaseReference!
+    var refSoundDetection: DatabaseReference!
+
     //MARK: - IBOUTLETS
     // Motor
     @IBOutlet weak var motorButton: UIButton!
@@ -28,16 +37,6 @@ class BabyCradleViewController: UIViewController {
     @IBOutlet weak var soundDetectionImage: UIImageView!
     // Grid Views of IBOutlets
     @IBOutlet var views : [UIView]!
-
-    
-    var motor = Motor()
-    var fan = Fan()
-    var soundDetection = SoundDetection()
-    var status = Status()
-    var refMotor: DatabaseReference!
-    var refFan: DatabaseReference!
-    var refStatus: DatabaseReference!
-    var refSoundDetection: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +67,7 @@ class BabyCradleViewController: UIViewController {
         soundDetection.fetchDetectedSound(ref: refDetectedSound, imageSound: soundDetectionImage)
     }
 
+    //MARK: - Temperature & Humidity Status
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
 
@@ -90,18 +90,8 @@ class BabyCradleViewController: UIViewController {
 
     @IBAction func motorLevelSlider(_ sender: UISlider) {
         let refMotorLevel = refMotor.child("level")
-        motorSlider.value = roundf(motorSlider.value)
 
-        if motorSlider.value == 1 {
-            motorLevelLabel.text = "Low"
-            refMotorLevel.setValue(1)
-        } else if motorSlider.value == 2 {
-            motorLevelLabel.text = "Medium"
-            refMotorLevel.setValue(2)
-        } else {
-            motorLevelLabel.text = "High"
-            refMotorLevel.setValue(3)
-        }
+        motor.setMotorSlider(ref: refMotorLevel, slider: motorSlider, label: motorLevelLabel)
     }
 
     //MARK: - FAN
@@ -112,21 +102,8 @@ class BabyCradleViewController: UIViewController {
 
     @IBAction func fanLevelSlider(_ sender: UISlider) {
         let refFanLevel = refFan.child("level")
-        fanSlider.value = roundf(fanSlider.value)
 
-        if fanSlider.value == 1 {
-            fanLevelLabel.text = "Low"
-            refFanLevel.setValue(1)
-        } else if fanSlider.value == 2 {
-            fanLevelLabel.text = "Medium"
-            refFanLevel.setValue(2)
-
-        } else {
-            fanLevelLabel.text = "High"
-            refFanLevel.setValue(3)
-
-        }
-
+        fan.setFanSlider(ref: refFanLevel, slider: fanSlider, label: fanLevelLabel)
     }
 
     //MARK: - Sign Out
