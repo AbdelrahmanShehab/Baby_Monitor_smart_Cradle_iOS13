@@ -61,9 +61,9 @@ class BabyCradleViewController: UIViewController {
         // Featching Data in StartUp
 
         motor.observeMotorStates(ref: refMotorRun, button: motorButton)
-        motor.observeMotorLevel(ref: refMotorLevel, slider: motorSlider)
+        motor.observeMotorLevel(ref: refMotorLevel, slider: motorSlider, label: motorLevelLabel)
         fan.observeFanStates(ref: refFanRun, button: fanButton)
-        fan.observeFanLevel(ref: refFanLevel, slider: fanSlider)
+        fan.observeFanLevel(ref: refFanLevel, slider: fanSlider, label: fanLevelLabel)
         soundDetection.fetchDetectedSound(ref: refDetectedSound, imageSound: soundDetectionImage)
     }
 

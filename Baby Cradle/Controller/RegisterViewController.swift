@@ -9,34 +9,13 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController,UITextFieldDelegate {
+class RegisterViewController: UIViewController {
 
     @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerEmailTextField: UITextField!
     @IBOutlet weak var registerPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
-
-    // Make New User 
-    @IBAction func registerPressedButton(_ sender: UIButton) {
-
-        if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    self.alertLabel.text = e.localizedDescription
-                }else{
-                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
-                }
-            }
-        }
-
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        registerEmailTextField.endEditing(true)
-        registerPasswordTextField.endEditing(true)
-        return true
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +40,29 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         registerButton.setGradientBackground(colorOne: K.BrandColors.purple22, colorTwo: K.BrandColors.blueGreen)
        
     }
-    
 
+    //MARK: - Sign up to the Application
+    @IBAction func registerPressedButton(_ sender: UIButton) {
 
+        if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error{
+                    self.alertLabel.text = e.localizedDescription
+                }else{
+                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
+                }
+            }
+        }
+
+    }
+}
+
+//MARK: - UITextField Delgate Method
+extension RegisterViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        registerEmailTextField.endEditing(true)
+        registerPasswordTextField.endEditing(true)
+        return true
+    }
 }

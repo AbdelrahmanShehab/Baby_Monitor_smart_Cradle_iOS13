@@ -66,10 +66,18 @@ struct Fan {
     }
 
     // Fetching Level Degree Data
-     func observeFanLevel(ref: DatabaseReference! , slider:UISlider) {
+     func observeFanLevel(ref: DatabaseReference! , slider:UISlider, label: UILabel) {
         ref.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
                 slider.value = level
+                if slider.value == 1 {
+                    label.text = "Low"
+                } else if slider.value == 2 {
+                    label.text = "Medium"
+                } else {
+                    label.text = "High"
+                }
+
             }
         }
     }

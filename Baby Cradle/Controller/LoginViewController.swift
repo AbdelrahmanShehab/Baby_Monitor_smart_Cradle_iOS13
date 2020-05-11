@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CLTypingLabel
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var appNameLabel: CLTypingLabel!
     @IBOutlet weak var loginButton: UIButton!
@@ -19,21 +19,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
 
-    // Sign in to the Application
-    @IBAction func loginPressedButton(_ sender: UIButton) {
-        if let email  = loginEmailTextField.text, let password = loginPasswordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    self.alertLabel.text = e.localizedDescription
-                }else {
-                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
-                }
-
-            }
-
-        }
-
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,18 +29,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         navigationController?.isNavigationBarHidden = false
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginEmailTextField.endEditing(true)
-        loginPasswordTextField.endEditing(true)
-        return true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.hideKeyboardWhenTappedAround()
-
         appNameLabel.text = K.appName
+
         // Corner Radius for IBOutlets
         loginView.layer.cornerRadius = 10
         loginButton.layer.cornerRadius = 5
@@ -74,9 +53,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.setGradientBackground(colorOne: K.BrandColors.moove, colorTwo: K.BrandColors.blueWater)
     }
 
+    //MARK: - Sign in to the Application
+    @IBAction func loginPressedButton(_ sender: UIButton) {
+        if let email  = loginEmailTextField.text, let password = loginPasswordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let e = error{
+                    self.alertLabel.text = e.localizedDescription
+                }else {
+                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
+                }
 
+            }
 
+        }
+
+    }
 
 }
 
+//MARK: - UITextField Delgate Method
+extension LoginViewController: UITextFieldDelegate {
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginEmailTextField.endEditing(true)
+        loginPasswordTextField.endEditing(true)
+        return true
+    }
+
+}
