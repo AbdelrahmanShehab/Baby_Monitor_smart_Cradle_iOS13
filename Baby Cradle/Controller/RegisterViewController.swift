@@ -49,6 +49,7 @@ class RegisterViewController: UIViewController {
                 if let e = error{
                     self.alertLabel.text = e.localizedDescription
                 }else{
+                    Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
                     self.performSegue(withIdentifier: K.registerSegue, sender: self)
                 }
             }

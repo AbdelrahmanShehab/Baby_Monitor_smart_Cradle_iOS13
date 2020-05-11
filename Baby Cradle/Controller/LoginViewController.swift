@@ -59,7 +59,9 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error{
                     self.alertLabel.text = e.localizedDescription
+                    print(e.localizedDescription)
                 }else {
+                    Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
                     self.performSegue(withIdentifier: K.loginSegue, sender: self)
                 }
 

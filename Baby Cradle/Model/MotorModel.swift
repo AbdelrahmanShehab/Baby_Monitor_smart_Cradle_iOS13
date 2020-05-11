@@ -14,7 +14,9 @@ struct Motor {
 
     private var isMotorPressed = false
 
-    //Setting DATA
+    //MARK: - Setting Data
+
+    //Setting Motor State
     mutating func setMotorStates(ref: DatabaseReference!, button: UIButton) {
         if isMotorPressed {
             ref.child("run").setValue(1)
@@ -31,7 +33,7 @@ struct Motor {
         }
     }
 
-    // Setting level Degree DATA
+    // Setting level Degree State
     func setMotorSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
         slider.value = roundf(slider.value)
 
@@ -47,20 +49,27 @@ struct Motor {
         }
     }
 
-    // Featching DATA
+    //MARK: - Fetching Data
+
+    // Featching Motor Data
     func observeMotorStates(ref: DatabaseReference!, button: UIButton) {
 
         ref.observe(.value) { (snapShot) in
-            if snapShot.value as! Int == 1 {
-                DispatchQueue.main.async {
-                    button.setImage(UIImage(named: "power-on"), for: .normal)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    button.setImage(UIImage(named: "power-off"), for: .normal)
+            if let value = snapShot.value as? Int {
+                
+                if value == 1 {
+                    DispatchQueue.main.async {
+                        button.setImage(UIImage(named: "power-on"), for: .normal)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        button.setImage(UIImage(named: "power-off"), for: .normal)
 
+                    }
                 }
             }
+
+            //            print("fetch motor")
         }
 
     }
@@ -78,6 +87,8 @@ struct Motor {
                     label.text = "High"
                 }
             }
+            //            print("fetch  level motor")
+
         }
     }
 }

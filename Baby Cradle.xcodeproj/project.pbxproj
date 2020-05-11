@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631023D12469CE80005AC511 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631023D02469CE80005AC511 /* Spinner.swift */; };
+		631023D6246A07C1005AC511 /* Baby Crying.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631023D5246A07C1005AC511 /* Baby Crying.wav */; };
 		632396A12466D72500EB5A2C /* MotorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A02466D72500EB5A2C /* MotorModel.swift */; };
 		632396A32466D7F600EB5A2C /* FanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A22466D7F600EB5A2C /* FanModel.swift */; };
 		632396A52466DDB500EB5A2C /* SoundDetectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		327C414667BB395F8B85F3D5 /* Pods_Baby_Cradle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Cradle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		631023D02469CE80005AC511 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		631023D5246A07C1005AC511 /* Baby Crying.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Baby Crying.wav"; sourceTree = "<group>"; };
 		632396A02466D72500EB5A2C /* MotorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorModel.swift; sourceTree = "<group>"; };
 		632396A22466D7F600EB5A2C /* FanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanModel.swift; sourceTree = "<group>"; };
 		632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundDetectionModel.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		631023D4246A0794005AC511 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				631023D5246A07C1005AC511 /* Baby Crying.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6323969F2466D6FF00EB5A2C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +116,7 @@
 				63FB8CC62455CD6100AEAD39 /* Model */,
 				63FB8CC72455CD6B00AEAD39 /* View */,
 				63FB8CC82455CD7400AEAD39 /* Controller */,
+				631023D4246A0794005AC511 /* Sounds */,
 				632D3E672454615B0061A531 /* Assets.xcassets */,
 				632D3E6C2454615B0061A531 /* Info.plist */,
 				63F20F30245AFE76001D6162 /* GoogleService-Info.plist */,
@@ -114,6 +127,7 @@
 		63FB8CC62455CD6100AEAD39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				631023D02469CE80005AC511 /* Spinner.swift */,
 				632396A02466D72500EB5A2C /* MotorModel.swift */,
 				632396A22466D7F600EB5A2C /* FanModel.swift */,
 				632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */,
@@ -221,6 +235,7 @@
 			files = (
 				632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */,
 				63F20F31245AFE76001D6162 /* GoogleService-Info.plist in Resources */,
+				631023D6246A07C1005AC511 /* Baby Crying.wav in Resources */,
 				632D3E682454615B0061A531 /* Assets.xcassets in Resources */,
 				632D3E66245461590061A531 /* Main.storyboard in Resources */,
 			);
@@ -279,6 +294,7 @@
 				632396A32466D7F600EB5A2C /* FanModel.swift in Sources */,
 				632396A52466DDB500EB5A2C /* SoundDetectionModel.swift in Sources */,
 				632396A924672CFB00EB5A2C /* TextFieldX.swift in Sources */,
+				631023D12469CE80005AC511 /* Spinner.swift in Sources */,
 				63D3AC1924570B3F00070A95 /* ViewX.swift in Sources */,
 				63FB8CCC2455CE0100AEAD39 /* BabyCradleViewController.swift in Sources */,
 				632D3E5F245461590061A531 /* AppDelegate.swift in Sources */,

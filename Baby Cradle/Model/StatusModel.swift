@@ -17,6 +17,7 @@ struct Status {
      func fetchStatusData(ref: DatabaseReference!, progressView: MBCircularProgressBarView) {
         ref.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String {
+                
                 let progressValue = (value as NSString).floatValue
                 progressView.value = CGFloat(progressValue)
                 switch progressValue {
@@ -44,6 +45,8 @@ struct Status {
                         progressView.progressColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
                 }
             }
+//            print("fetch status")
+
         }
     }
 }

@@ -14,7 +14,9 @@ struct Fan {
 
     private var isFanPressed = false
 
-    //Setting DATA
+    //MARK: - Setting Data
+
+    //Setting Fan State
      mutating func setFanStates(ref: DatabaseReference!, button: UIButton) {
         if isFanPressed {
             ref.child("run").setValue(1)
@@ -31,7 +33,7 @@ struct Fan {
         }
     }
 
-    // Setting level Degree DATA
+    // Setting level Degree state
     func setFanSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
         slider.value = roundf(slider.value)
 
@@ -47,20 +49,27 @@ struct Fan {
         }
     }
 
-    // Fetching DATA
+    //MARK: - Featching Data
+
+    // Fetching Fan Data
      func observeFanStates(ref: DatabaseReference!, button: UIButton) {
 
         ref.observe(.value) { (snapShot) in
-            if snapShot.value as! Int == 1 {
-                DispatchQueue.main.async {
-                    button.setImage(UIImage(named: "fan-on"), for: .normal)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    button.setImage(UIImage(named: "fan-off"), for: .normal)
+            if let value = snapShot.value as? Int {
 
+                if value == 1 {
+                    DispatchQueue.main.async {
+                        button.setImage(UIImage(named: "fan-on"), for: .normal)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        button.setImage(UIImage(named: "fan-off"), for: .normal)
+
+                    }
                 }
             }
+            //            print("fetch fan")
+
         }
 
     }
@@ -79,6 +88,8 @@ struct Fan {
                 }
 
             }
+//            print("fetch level fan")
+
         }
     }
 }

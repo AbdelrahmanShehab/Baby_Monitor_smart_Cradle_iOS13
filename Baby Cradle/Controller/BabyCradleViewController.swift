@@ -38,51 +38,22 @@ class BabyCradleViewController: UIViewController {
     // Grid Views of IBOutlets
     @IBOutlet var views : [UIView]!
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.hidesBackButton = true
+
         for view in views {
             view.layer.cornerRadius = 10
         }
+
         view.setGradientBackground(colorOne: K.BrandColors.blackMoove, colorTwo: K.BrandColors.lightMoove)
 
-        // Firebase RealTime Database JSON Structure
-
-        refMotor = Database.database().reference(withPath: "Motor")
-        let refMotorRun = refMotor.child("run")
-        let refMotorLevel = refMotor.child("level")
-        refFan = Database.database().reference(withPath: "Fan")
-        let refFanRun = refFan.child("run")
-        let refFanLevel = refFan.child("level")
-        refSoundDetection = Database.database().reference(withPath: "Sound Detection")
-        let refDetectedSound = refSoundDetection.child("detected")
-
-        // Featching Data in StartUp
-
-        motor.observeMotorStates(ref: refMotorRun, button: motorButton)
-        motor.observeMotorLevel(ref: refMotorLevel, slider: motorSlider, label: motorLevelLabel)
-        fan.observeFanStates(ref: refFanRun, button: fanButton)
-        fan.observeFanLevel(ref: refFanLevel, slider: fanSlider, label: fanLevelLabel)
-        soundDetection.fetchDetectedSound(ref: refDetectedSound, imageSound: soundDetectionImage)
+        fetchDataFromFirebase()
     }
 
-    //MARK: - Temperature & Humidity Status
-    override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-
-            // Firebase RealTime Database JSON Structure
-            self.refStatus =  Database.database().reference(withPath: "Status")
-            let refTemperatureStatus = self.refStatus.child("Temperature")
-            let refreHumidityStatus  = self.refStatus.child("Humidity")
-
-            // Featching Data in StartUp
-            self.status.fetchStatusData(ref: refreHumidityStatus, progressView: self.humidityProgressView)
-            self.status.fetchStatusData(ref: refTemperatureStatus, progressView: self.temperatureProgressView)
-        }
-    }
-
-    //MARK: - MOTOR
+    //MARK: - MOTOR ACTION
     @IBAction func motorPowerButton(_ sender: UIButton) {
 
         motor.setMotorStates(ref: refMotor, button: motorButton)
@@ -94,7 +65,7 @@ class BabyCradleViewController: UIViewController {
         motor.setMotorSlider(ref: refMotorLevel, slider: motorSlider, label: motorLevelLabel)
     }
 
-    //MARK: - FAN
+    //MARK: - FAN ACTION
     @IBAction func fanPressedButton(_ sender: UIButton) {
 
         fan.setFanStates(ref: refFan, button: fanButton)
@@ -116,6 +87,40 @@ class BabyCradleViewController: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
 
+    }
+
+    //MARK: - Fetching Data From Firebase
+    func fetchDataFromFirebase() {
+
+        // Firebase RealTime Database JSON Structure
+        refMotor = Database.database().reference(withPath: "Motor")
+        let refMotorRun = refMotor.child("run")
+        let refMotorLevel = refMotor.child("level")
+        refFan = Database.database().reference(withPath: "Fan")
+        let refFanRun = refFan.child("run")
+        let refFanLevel = refFan.child("level")
+        refSoundDetection = Database.database().reference(withPath: "Sound Detection")
+        let refDetectedSound = refSoundDetection.child("detected")
+        refStatus =  Database.database().reference(withPath: "Status")
+        let refTemperatureStatus = refStatus.child("Temperature")
+        let refreHumidityStatus  = refStatus.child("Humidity")
+
+        // Featching Data in StartUp
+        DispatchQueue.main.async {
+            self.motor.observeMotorStates(ref: refMotorRun, button: self.motorButton)
+            self.motor.observeMotorLevel(ref: refMotorLevel, slider: self.motorSlider, label: self.motorLevelLabel)
+            self.fan.observeFanStates(ref: refFanRun, button: self.fanButton)
+            self.fan.observeFanLevel(ref: refFanLevel, slider: self.fanSlider, label: self.fanLevelLabel)
+
+            self.soundDetection.fetchDetectedSound(ref: refDetectedSound, imageSound: self.soundDetectionImage)
+            self.status.fetchStatusData(ref: refreHumidityStatus, progressView: self.humidityProgressView)
+            self.status.fetchStatusData(ref: refTemperatureStatus, progressView: self.temperatureProgressView)
+
+            //Hide Spinner
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(1500)) {
+                Spinner.sharedInstance.hide()
+            }
+        }
     }
 
 }
