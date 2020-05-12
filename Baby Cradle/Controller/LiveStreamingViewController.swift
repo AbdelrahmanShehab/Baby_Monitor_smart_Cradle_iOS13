@@ -16,9 +16,6 @@ class LiveStreamingViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Hide Tab Bar
-        tabBarController?.tabBar.isHidden = true
-
         // Setting up WebView
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.allowsInlineMediaPlayback = true
