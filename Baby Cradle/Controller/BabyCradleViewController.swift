@@ -42,14 +42,14 @@ class BabyCradleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.hidesBackButton = true
-
+        // Customize Views
         for view in views {
             view.layer.cornerRadius = 10
         }
 
         view.setGradientBackground(colorOne: K.BrandColors.blackMoove, colorTwo: K.BrandColors.lightMoove)
 
+        // Fetching Data From Firebase Realtime Database 
         fetchDataFromFirebase()
     }
 
@@ -82,7 +82,7 @@ class BabyCradleViewController: UIViewController {
 
         do {
             try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }

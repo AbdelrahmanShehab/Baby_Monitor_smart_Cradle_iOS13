@@ -56,13 +56,16 @@ class LoginViewController: UIViewController {
     //MARK: - Sign in to the Application
     @IBAction func loginPressedButton(_ sender: UIButton) {
         if let email  = loginEmailTextField.text, let password = loginPasswordTextField.text {
+            
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error{
                     self.alertLabel.text = e.localizedDescription
-                    print(e.localizedDescription)
                 }else {
-                    Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
-                    self.performSegue(withIdentifier: K.loginSegue, sender: self)
+                    let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+                    self.present(mainTabController, animated: false) {
+                        Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
+                    }
+                    
                 }
 
             }

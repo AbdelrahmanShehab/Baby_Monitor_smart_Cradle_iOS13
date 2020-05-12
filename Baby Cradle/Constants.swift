@@ -11,8 +11,6 @@ import UIKit
 
 struct K {
     static let appName = "👶🏼 Smart Baby Cradle"
-    static let loginSegue = "LoginToBabyCradle"
-    static let registerSegue = "RegisterToBabyCradle"
 
     struct BrandColors {
         static let purple = UIColor(red: 0.51, green: 0.38, blue: 0.76, alpha: 1.00)

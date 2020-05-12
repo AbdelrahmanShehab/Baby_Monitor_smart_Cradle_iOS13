@@ -16,6 +16,10 @@ class LiveStreamingViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide Tab Bar
+        tabBarController?.tabBar.isHidden = true
+
+        // Setting up WebView
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.allowsInlineMediaPlayback = true
         webConfiguration.mediaTypesRequiringUserActionForPlayback = []
@@ -26,9 +30,8 @@ class LiveStreamingViewController: UIViewController  {
         if let videoURL:URL = URL(string: "https://www.youtube.com/embed/OE140zsQ08I") {
              let request:URLRequest = URLRequest(url: videoURL)
              myPlayer.load(request)
-        }
-
-
+            }
+        
     }
 }
 

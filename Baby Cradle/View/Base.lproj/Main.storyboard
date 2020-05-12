@@ -90,12 +90,11 @@
                         <outlet property="loginEmailTextField" destination="MgT-h9-2hf" id="x3r-hQ-Tla"/>
                         <outlet property="loginPasswordTextField" destination="g6X-l4-zHv" id="seD-8H-Hac"/>
                         <outlet property="loginView" destination="thT-jP-pOW" id="aSg-ID-bj3"/>
-                        <segue destination="PsJ-3m-DHH" kind="show" identifier="LoginToBabyCradle" id="mp9-Xp-6cR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQk-AT-zFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442.4000000000001" y="-649.02548725637189"/>
+            <point key="canvasLocation" x="16046" y="-147"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="VNf-Ou-fAp">
@@ -166,27 +165,33 @@
                         <outlet property="registerEmailTextField" destination="6Zg-hl-12x" id="Kvm-R8-o51"/>
                         <outlet property="registerPasswordTextField" destination="UFo-Zo-WDG" id="k62-6T-EIB"/>
                         <outlet property="registerView" destination="uUh-Sl-sdG" id="KFD-tF-O7i"/>
-                        <segue destination="PsJ-3m-DHH" kind="show" identifier="RegisterToBabyCradle" id="krB-fS-FOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UoH-LA-yhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613.5999999999999" y="-649.02548725637189"/>
+            <point key="canvasLocation" x="16985" y="-147"/>
         </scene>
-        <!--👶🏼 Smart Baby Cradle-->
+        <!-- 👶🏼 Smart Baby Cradle-->
         <scene sceneID="5xs-8Z-mHd">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="PsJ-3m-DHH" customClass="BabyCradleViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PsJ-3m-DHH" customClass="BabyCradleViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZKJ-yj-T0b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-wP-alj" userLabel="Humidity View">
-                                <rect key="frame" x="193" y="277" width="166" height="191"/>
+                                <rect key="frame" x="193" y="262" width="166" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPh-kS-sSo">
+                                        <rect key="frame" x="23" y="8" width="120" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwf-Jr-c6L" customClass="MBCircularProgressBarView">
-                                        <rect key="frame" x="13" y="38" width="140" height="140"/>
+                                        <rect key="frame" x="23" y="39" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -229,18 +234,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPh-kS-sSo">
-                                        <rect key="frame" x="8" y="14" width="150" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I3O-Yu-FbH" userLabel="Live View">
-                                <rect key="frame" x="193" y="476" width="166" height="186"/>
+                                <rect key="frame" x="193" y="448" width="166" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Live Stream" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTo-YS-jTq">
@@ -251,7 +249,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-k7-QVr">
-                                        <rect key="frame" x="18" y="40" width="130" height="130"/>
+                                        <rect key="frame" x="33" y="40" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="live-streaming"/>
                                         <connections>
@@ -262,11 +260,11 @@
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HqU-Wa-ptU" userLabel="Fan View">
-                                <rect key="frame" x="193" y="72" width="166" height="197"/>
+                                <rect key="frame" x="193" y="73" width="166" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my2-St-Alw">
-                                        <rect key="frame" x="47" y="41" width="75" height="75"/>
+                                        <rect key="frame" x="47" y="41" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="fan-off"/>
                                         <connections>
@@ -274,21 +272,21 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blP-07-r8v">
-                                        <rect key="frame" x="8" y="8" width="150" height="25"/>
+                                        <rect key="frame" x="7" y="8" width="150" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOK-IQ-dny">
-                                        <rect key="frame" x="8" y="124" width="152" height="29"/>
+                                        <rect key="frame" x="8" y="119" width="151" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-Zh-maD">
-                                        <rect key="frame" x="6" y="161" width="154" height="30"/>
+                                        <rect key="frame" x="7" y="144" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="fanLevelSlider:" destination="PsJ-3m-DHH" eventType="valueChanged" id="WIc-iC-3kp"/>
@@ -298,11 +296,11 @@
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tQ-K7-pwT" userLabel="Motor View">
-                                <rect key="frame" x="16" y="72" width="169" height="197"/>
+                                <rect key="frame" x="16" y="73" width="169" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gN7-qK-Mtg">
-                                        <rect key="frame" x="46" y="41" width="75" height="75"/>
+                                        <rect key="frame" x="50" y="41" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="power-off"/>
                                         <connections>
@@ -310,35 +308,60 @@
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="6hr-ev-v0r">
-                                        <rect key="frame" x="6" y="160" width="154" height="30"/>
+                                        <rect key="frame" x="6" y="144" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="motorLevelSlider:" destination="PsJ-3m-DHH" eventType="valueChanged" id="e7d-py-ZT7"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs3-n5-iJo">
-                                        <rect key="frame" x="9" y="8" width="150" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2b-0T-vtz">
+                                        <rect key="frame" x="10" y="119" width="151" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2b-0T-vtz">
-                                        <rect key="frame" x="9" y="124" width="152" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs3-n5-iJo">
+                                        <rect key="frame" x="10" y="8" width="150" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVz-Rk-xuP" userLabel="Temperature View">
-                                <rect key="frame" x="16" y="277" width="169" height="191"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIC-Gc-X90" userLabel="Sound View">
+                                <rect key="frame" x="16" y="448" width="169" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound Detector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyv-ju-INQ">
+                                        <rect key="frame" x="9" y="8" width="150" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listen-on" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-Hn-q2n">
+                                        <rect key="frame" x="34" y="40" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVz-Rk-xuP" userLabel="Temperature View">
+                                <rect key="frame" x="16" y="262" width="169" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4a-za-l9D">
+                                        <rect key="frame" x="24" y="8" width="120" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EdM-ts-Ifl" customClass="MBCircularProgressBarView">
-                                        <rect key="frame" x="14" y="38" width="140" height="140"/>
+                                        <rect key="frame" x="24" y="39" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -378,31 +401,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4a-za-l9D">
-                                        <rect key="frame" x="14" y="8" width="140" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIC-Gc-X90" userLabel="Sound View">
-                                <rect key="frame" x="16" y="476" width="169" height="186"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sound Detector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyv-ju-INQ">
-                                        <rect key="frame" x="9" y="8" width="150" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listen-on" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-Hn-q2n">
-                                        <rect key="frame" x="19" y="46" width="130" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -410,10 +408,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="0XZ-Xf-deB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="👶🏼 Smart Baby Cradle" id="Dht-wF-Kz5">
-                        <barButtonItem key="rightBarButtonItem" title="LogOut" id="Cc1-Dk-99q">
+                    <navigationItem key="navigationItem" title=" 👶🏼 Smart Baby Cradle" id="90x-jh-UYq">
+                        <barButtonItem key="rightBarButtonItem" title="LogOut" id="5cp-jg-t5L">
                             <connections>
-                                <action selector="logOutButtonPressed:" destination="PsJ-3m-DHH" id="6Gn-uZ-jWJ"/>
+                                <action selector="logOutButtonPressed:" destination="PsJ-3m-DHH" id="O5P-Qr-YSD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -437,12 +435,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKm-d3-RIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3040.8000000000002" y="214.54272863568218"/>
+            <point key="canvasLocation" x="17221.599999999999" y="2255.6221889055473"/>
         </scene>
         <!--Live Streaming-->
         <scene sceneID="6dc-Qt-aRd">
             <objects>
-                <viewController id="SkC-jP-SPo" customClass="LiveStreamingViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SkC-jP-SPo" customClass="LiveStreamingViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLk-nq-Ydw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -453,7 +451,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD8-JS-k2P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3901.5999999999999" y="214.54272863568218"/>
+            <point key="canvasLocation" x="18225" y="3144"/>
+        </scene>
+        <!--Music-->
+        <scene sceneID="65S-t8-Xfg">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Pse-8s-FIJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dsk-I0-v1Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GNk-Qo-FeW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Music" image="music.house.fill" catalog="system" selectedImage="music.house.fill" id="GpI-5k-642"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0t9-U5-Yas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15116" y="1422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2kH-bi-f03">
@@ -476,19 +490,58 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPt-dL-vyq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503.2" y="-649.02548725637189"/>
+            <point key="canvasLocation" x="15116" y="-147"/>
+        </scene>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="0dd-2h-xyg">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rso-Lr-FRB" customClass="MainTabBarViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AHb-dS-OCf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ziz-wZ-nLs" kind="relationship" relationship="viewControllers" id="z22-PH-lhz"/>
+                        <segue destination="Pse-8s-FIJ" kind="relationship" relationship="viewControllers" id="YqE-gc-JZQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-RW-Eto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16046" y="550"/>
+        </scene>
+        <!--Control-->
+        <scene sceneID="STg-zm-vxu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="ziz-wZ-nLs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Control" image="gear" catalog="system" selectedImage="gear" id="fSk-CG-IeE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY6-Mx-Kzf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4xc-bu-FDa">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="PsJ-3m-DHH" kind="relationship" relationship="rootViewController" id="J5I-mk-MpX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhc-gX-Ufp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="16985" y="1422"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="mp9-Xp-6cR"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="baby-crib" width="170.5" height="170.5"/>
         <image name="baby2" width="170.5" height="170.5"/>
         <image name="cradle" width="170.5" height="170.5"/>
         <image name="fan-off" width="170.5" height="170.5"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="listen-on" width="170.5" height="170.5"/>
         <image name="live-streaming" width="170.5" height="170.5"/>
+        <image name="music.house.fill" catalog="system" width="128" height="106"/>
         <image name="power-off" width="170.5" height="170.5"/>
     </resources>
 </document>
