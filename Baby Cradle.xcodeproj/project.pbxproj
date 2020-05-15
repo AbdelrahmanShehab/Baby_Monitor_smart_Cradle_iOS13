@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		631023D12469CE80005AC511 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631023D02469CE80005AC511 /* Spinner.swift */; };
-		631023D6246A07C1005AC511 /* Baby Crying.wav in Resources */ = {isa = PBXBuildFile; fileRef = 631023D5246A07C1005AC511 /* Baby Crying.wav */; };
 		631023D8246AE2E3005AC511 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631023D7246AE2E3005AC511 /* MainTabBarViewController.swift */; };
 		632396A12466D72500EB5A2C /* MotorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A02466D72500EB5A2C /* MotorModel.swift */; };
 		632396A32466D7F600EB5A2C /* FanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632396A22466D7F600EB5A2C /* FanModel.swift */; };
@@ -22,6 +21,10 @@
 		632D3E66245461590061A531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E64245461590061A531 /* Main.storyboard */; };
 		632D3E682454615B0061A531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E672454615B0061A531 /* Assets.xcassets */; };
 		632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E692454615B0061A531 /* LaunchScreen.storyboard */; };
+		634F9D67246EC90D0079AB99 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D66246EC90D0079AB99 /* MusicViewController.swift */; };
+		634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */; };
+		634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D6C246EEA390079AB99 /* Cradle.mp3 */; };
+		634F9D6F246F099F0079AB99 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D6E246F099F0079AB99 /* MusicModel.swift */; };
 		6389336E2462D4E000694BDE /* LiveStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */; };
 		63C7863E2457006E005571F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7863D2457006E005571F8 /* Constants.swift */; };
 		63D3AC1924570B3F00070A95 /* ViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3AC1824570B3F00070A95 /* ViewX.swift */; };
@@ -34,7 +37,6 @@
 /* Begin PBXFileReference section */
 		327C414667BB395F8B85F3D5 /* Pods_Baby_Cradle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby_Cradle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		631023D02469CE80005AC511 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		631023D5246A07C1005AC511 /* Baby Crying.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Baby Crying.wav"; sourceTree = "<group>"; };
 		631023D7246AE2E3005AC511 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		632396A02466D72500EB5A2C /* MotorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorModel.swift; sourceTree = "<group>"; };
 		632396A22466D7F600EB5A2C /* FanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanModel.swift; sourceTree = "<group>"; };
@@ -50,6 +52,10 @@
 		632D3E672454615B0061A531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632D3E6A2454615B0061A531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		632D3E6C2454615B0061A531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634F9D66246EC90D0079AB99 /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Shark Doo Doo.mp3"; sourceTree = "<group>"; };
+		634F9D6C246EEA390079AB99 /* Cradle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cradle.mp3; sourceTree = "<group>"; };
+		634F9D6E246F099F0079AB99 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamingViewController.swift; sourceTree = "<group>"; };
 		63C7863D2457006E005571F8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63D3AC1824570B3F00070A95 /* ViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewX.swift; sourceTree = "<group>"; };
@@ -72,12 +78,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		631023D4246A0794005AC511 /* Sounds */ = {
+		631023D4246A0794005AC511 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
-				631023D5246A07C1005AC511 /* Baby Crying.wav */,
+				634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */,
+				634F9D6C246EEA390079AB99 /* Cradle.mp3 */,
 			);
-			path = Sounds;
+			path = Songs;
 			sourceTree = "<group>";
 		};
 		6323969F2466D6FF00EB5A2C /* Extensions */ = {
@@ -118,7 +125,7 @@
 				63FB8CC62455CD6100AEAD39 /* Model */,
 				63FB8CC72455CD6B00AEAD39 /* View */,
 				63FB8CC82455CD7400AEAD39 /* Controller */,
-				631023D4246A0794005AC511 /* Sounds */,
+				631023D4246A0794005AC511 /* Songs */,
 				632D3E672454615B0061A531 /* Assets.xcassets */,
 				632D3E6C2454615B0061A531 /* Info.plist */,
 				63F20F30245AFE76001D6162 /* GoogleService-Info.plist */,
@@ -134,6 +141,7 @@
 				632396A22466D7F600EB5A2C /* FanModel.swift */,
 				632396A42466DDB500EB5A2C /* SoundDetectionModel.swift */,
 				632396A62466DF8500EB5A2C /* StatusModel.swift */,
+				634F9D6E246F099F0079AB99 /* MusicModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 				63FB8CCB2455CE0100AEAD39 /* BabyCradleViewController.swift */,
 				6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */,
 				631023D7246AE2E3005AC511 /* MainTabBarViewController.swift */,
+				634F9D66246EC90D0079AB99 /* MusicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,9 +247,10 @@
 			files = (
 				632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */,
 				63F20F31245AFE76001D6162 /* GoogleService-Info.plist in Resources */,
-				631023D6246A07C1005AC511 /* Baby Crying.wav in Resources */,
+				634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */,
 				632D3E682454615B0061A531 /* Assets.xcassets in Resources */,
 				632D3E66245461590061A531 /* Main.storyboard in Resources */,
+				634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +314,8 @@
 				632D3E61245461590061A531 /* SceneDelegate.swift in Sources */,
 				631023D8246AE2E3005AC511 /* MainTabBarViewController.swift in Sources */,
 				63FB8CCA2455CDDE00AEAD39 /* RegisterViewController.swift in Sources */,
+				634F9D6F246F099F0079AB99 /* MusicModel.swift in Sources */,
+				634F9D67246EC90D0079AB99 /* MusicViewController.swift in Sources */,
 				632396AB2467364300EB5A2C /* ViewContrllerX.swift in Sources */,
 				63C7863E2457006E005571F8 /* Constants.swift in Sources */,
 				632396A72466DF8500EB5A2C /* StatusModel.swift in Sources */,
