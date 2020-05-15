@@ -94,6 +94,7 @@ class MusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        musicTableView.tableFooterView = UIView()
         getSongName()
     }
 
