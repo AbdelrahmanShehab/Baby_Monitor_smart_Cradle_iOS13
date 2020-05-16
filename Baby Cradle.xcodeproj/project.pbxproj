@@ -161,9 +161,9 @@
 				632D3E62245461590061A531 /* LoginViewController.swift */,
 				63FB8CC92455CDDE00AEAD39 /* RegisterViewController.swift */,
 				63FB8CCB2455CE0100AEAD39 /* BabyCradleViewController.swift */,
+				634F9D66246EC90D0079AB99 /* MusicViewController.swift */,
 				6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */,
 				631023D7246AE2E3005AC511 /* MainTabBarViewController.swift */,
-				634F9D66246EC90D0079AB99 /* MusicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

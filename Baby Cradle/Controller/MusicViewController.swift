@@ -21,7 +21,8 @@ class MusicViewController: UIViewController {
 
     @IBOutlet weak var musicTableView: UITableView!
     @IBOutlet weak var songLabel: UILabel!
-
+    @IBOutlet weak var audioView: UIView!
+    
     //MARK: - Play ▶️
     @IBAction func play(_ sender: UIButton)
     {
@@ -46,7 +47,7 @@ class MusicViewController: UIViewController {
         }
     }
 
-    //MARK: - Skip ⏩
+    //MARK: - Skip ⏭
     @IBAction func skip(_ sender: UIButton) {
 
         if thisSong < playList.count-1 && audioStuffed == true
@@ -64,7 +65,7 @@ class MusicViewController: UIViewController {
         }
     }
 
-    //MARK: - Previous ⏪
+    //MARK: - Previous ⏮
     @IBAction func previous(_ sender: UIButton) {
         if thisSong != 0 && audioStuffed == true
         {
@@ -81,7 +82,7 @@ class MusicViewController: UIViewController {
         }
     }
 
-    //MARK: - Volume
+    //MARK: - Volume 🔊
     @IBAction func volumeSlider(_ sender: UISlider) {
 
         if audioStuffed == true
@@ -94,8 +95,11 @@ class MusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        musicTableView.tableFooterView = UIView()
+        audioView.setShadow()
+        musicTableView.layer.cornerRadius = 10.0
+        view.setGradientBackground(colorOne: UIColor(cgColor: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), colorTwo: UIColor(cgColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
         getSongName()
+        //        musicTableView.tableFooterView = UIView()
     }
 
     //MARK: - Music Methods

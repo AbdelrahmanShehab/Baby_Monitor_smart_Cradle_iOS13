@@ -44,11 +44,12 @@ class BabyCradleViewController: UIViewController {
 
         // Customize Views
         for view in views {
-            view.layer.cornerRadius = 10
+            view.setShadow()
         }
-
-        view.setGradientBackground(colorOne: K.BrandColors.blackMoove, colorTwo: K.BrandColors.lightMoove)
-
+        view.setGradientBackground(colorOne: UIColor(cgColor: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), colorTwo: UIColor(cgColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
+        temperatureProgressView.setShadow()
+        humidityProgressView.setShadow()
+        
         // Fetching Data From Firebase Realtime Database 
         fetchDataFromFirebase()
     }
