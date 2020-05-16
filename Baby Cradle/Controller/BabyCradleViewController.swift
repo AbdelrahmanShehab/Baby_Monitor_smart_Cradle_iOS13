@@ -42,7 +42,7 @@ class BabyCradleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Customize Views
+        // Style Views
         for view in views {
             view.setShadow()
         }

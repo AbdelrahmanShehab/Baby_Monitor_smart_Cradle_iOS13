@@ -19,4 +19,13 @@ struct Music {
         refSong = refMusic.child("song")
         refSong.setValue(songValue)
     }
+
+    // Setting Song Volume in Real Time Database in Firebase
+    func setVolumeRTDFirebase(with songVolume: Float)
+    {
+        let refMusic = Database.database().reference(withPath: "Music")
+        var refVolume: DatabaseReference!
+        refVolume = refMusic.child("volume")
+        refVolume.setValue(songVolume)
+    }
 }

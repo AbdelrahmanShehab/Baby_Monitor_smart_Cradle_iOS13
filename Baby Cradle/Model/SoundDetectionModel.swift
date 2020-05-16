@@ -23,12 +23,12 @@ struct SoundDetection {
                 
                 if value == "yes"{
                     DispatchQueue.main.async {
-                        imageSound.image = UIImage(named: "listen-on")
+                        imageSound.image = UIImage(named: "sound-on")
 //                        self.soundAlert(songTitle: "Baby Crying")
                     }
                 } else {
                     DispatchQueue.main.async {
-                        imageSound.image = UIImage(named: "listen-off")
+                        imageSound.image = UIImage(named: "sound-off")
                     }
                 }
             }

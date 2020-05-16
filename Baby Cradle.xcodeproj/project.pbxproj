@@ -25,6 +25,7 @@
 		634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */; };
 		634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D6C246EEA390079AB99 /* Cradle.mp3 */; };
 		634F9D6F246F099F0079AB99 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D6E246F099F0079AB99 /* MusicModel.swift */; };
+		635FFF832470490C00C91C16 /* MathX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635FFF822470490C00C91C16 /* MathX.swift */; };
 		6389336E2462D4E000694BDE /* LiveStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */; };
 		63C7863E2457006E005571F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7863D2457006E005571F8 /* Constants.swift */; };
 		63D3AC1924570B3F00070A95 /* ViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3AC1824570B3F00070A95 /* ViewX.swift */; };
@@ -56,6 +57,7 @@
 		634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Shark Doo Doo.mp3"; sourceTree = "<group>"; };
 		634F9D6C246EEA390079AB99 /* Cradle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cradle.mp3; sourceTree = "<group>"; };
 		634F9D6E246F099F0079AB99 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		635FFF822470490C00C91C16 /* MathX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathX.swift; sourceTree = "<group>"; };
 		6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamingViewController.swift; sourceTree = "<group>"; };
 		63C7863D2457006E005571F8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63D3AC1824570B3F00070A95 /* ViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewX.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				63D3AC1824570B3F00070A95 /* ViewX.swift */,
 				632396A824672CFB00EB5A2C /* TextFieldX.swift */,
 				632396AA2467364300EB5A2C /* ViewContrllerX.swift */,
+				635FFF822470490C00C91C16 /* MathX.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				632396A32466D7F600EB5A2C /* FanModel.swift in Sources */,
 				632396A52466DDB500EB5A2C /* SoundDetectionModel.swift in Sources */,
 				632396A924672CFB00EB5A2C /* TextFieldX.swift in Sources */,
+				635FFF832470490C00C91C16 /* MathX.swift in Sources */,
 				631023D12469CE80005AC511 /* Spinner.swift in Sources */,
 				63D3AC1924570B3F00070A95 /* ViewX.swift in Sources */,
 				63FB8CCC2455CE0100AEAD39 /* BabyCradleViewController.swift in Sources */,

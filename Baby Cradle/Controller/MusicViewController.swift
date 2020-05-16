@@ -88,6 +88,7 @@ class MusicViewController: UIViewController {
         if audioStuffed == true
         {
             audioPlayer.volume = sender.value
+            music.setVolumeRTDFirebase(with: sender.value)
         }
     }
 

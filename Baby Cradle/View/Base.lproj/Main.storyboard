@@ -411,6 +411,7 @@
                     </view>
                     <navigationItem key="navigationItem" title=" 👶🏼 Smart Baby Cradle" id="90x-jh-UYq">
                         <barButtonItem key="rightBarButtonItem" title="LogOut" id="5cp-jg-t5L">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logOutButtonPressed:" destination="PsJ-3m-DHH" id="O5P-Qr-YSD"/>
                             </connections>
@@ -502,9 +503,12 @@
                                 <rect key="frame" x="12" y="182" width="350" height="142"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="M2D-Fi-PTW" userLabel="Volume Slider">
-                                        <rect key="frame" x="23" y="105" width="304" height="30"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="speaker.fill" catalog="system" maximumValueImage="speaker.3.fill" translatesAutoresizingMaskIntoConstraints="NO" id="M2D-Fi-PTW" userLabel="Volume Slider">
+                                        <rect key="frame" x="22" y="105" width="304" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.99779683350000004" green="0.95022720100000002" blue="0.4194731116" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="thumbTintColor" red="0.4001709819" green="0.39957156780000003" blue="0.42745476960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="volumeSlider:" destination="Pse-8s-FIJ" eventType="valueChanged" id="AvB-I3-7V0"/>
                                         </connections>
@@ -638,5 +642,7 @@
         <image name="power-off" width="170.5" height="170.5"/>
         <image name="prev" width="170.5" height="170.5"/>
         <image name="skip" width="170.5" height="170.5"/>
+        <image name="speaker.3.fill" catalog="system" width="128" height="90"/>
+        <image name="speaker.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
