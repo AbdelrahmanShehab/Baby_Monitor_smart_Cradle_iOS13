@@ -15,7 +15,7 @@ class Fan {
     private var status : Bool?
     private var isFanPressed: Bool {
         get {
-            let refFanRun = Database.database().reference(withPath: "Motor").child("run")
+            let refFanRun = Database.database().reference()
             refFanRun.observe(.value) { (snapshot) in
                 if let value = snapshot.value as? Int {
                     if value == 1 {

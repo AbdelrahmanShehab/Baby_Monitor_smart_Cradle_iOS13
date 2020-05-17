@@ -15,7 +15,7 @@ class Motor {
     private var status : Bool?
     private var isMotorPressed: Bool {
         get {
-            let refMotorRun = Database.database().reference(withPath: "Motor").child("run")
+            let refMotorRun = Database.database().reference()
             refMotorRun.observe(.value) { (snapshot) in
                 if let value = snapshot.value as? Int {
                     if value == 1 {
