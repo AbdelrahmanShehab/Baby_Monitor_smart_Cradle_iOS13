@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
 
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.blue, colorTwo: K.BrandColors.red)
-        loginButton.setGradientBackground(colorOne: K.BrandColors.red, colorTwo: K.BrandColors.blue)
+        loginButton.setGradientBackground(colorOne: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), colorTwo: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
 
         // Corner Radius for IBOutlets
         loginBlurview.layer.cornerRadius = 10
