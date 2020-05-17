@@ -10,26 +10,46 @@ import Foundation
 import UIKit
 import Firebase
 
-struct Fan {
+class Fan {
 
-    private var isFanPressed = false
+    private var status : Bool?
+    private var isFanPressed: Bool {
+        get {
+            let refFanRun = Database.database().reference(withPath: "Motor").child("run")
+            refFanRun.observe(.value) { (snapshot) in
+                if let value = snapshot.value as? Int {
+                    if value == 1 {
+                        self.status = true
+                    }else {
+                        self.status = false
+                    }
+                }
+            }
+            return status ?? false
+        }
+
+        set {
+            status = newValue
+        }
+    }
 
     //MARK: - Setting Data
 
     //Setting Fan State
-     mutating func setFanStates(ref: DatabaseReference!, button: UIButton) {
-        if isFanPressed {
+    func setFanStates(ref: DatabaseReference!, button: UIButton) {
+        if !isFanPressed {
             ref.child("run").setValue(1)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "fan-on"), for: .normal)
+                self.isFanPressed = true
             }
-            isFanPressed = !isFanPressed
+            
         } else {
             ref.child("run").setValue(0)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "fan-off"), for: .normal)
             }
-            isFanPressed = !isFanPressed
+            self.isFanPressed = false
         }
     }
 
@@ -60,16 +80,15 @@ struct Fan {
                 if value == 1 {
                     DispatchQueue.main.async {
                         button.setImage(UIImage(named: "fan-on"), for: .normal)
+                        self.isFanPressed = true
                     }
                 } else {
                     DispatchQueue.main.async {
                         button.setImage(UIImage(named: "fan-off"), for: .normal)
-
+                        self.isFanPressed = false
                     }
                 }
             }
-            //            print("fetch fan")
-
         }
 
     }

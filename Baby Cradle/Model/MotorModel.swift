@@ -10,26 +10,45 @@ import Foundation
 import UIKit
 import Firebase
 
-struct Motor {
+class Motor {
 
-    private var isMotorPressed = false
+    private var status : Bool?
+    private var isMotorPressed: Bool {
+        get {
+            let refMotorRun = Database.database().reference(withPath: "Motor").child("run")
+            refMotorRun.observe(.value) { (snapshot) in
+                if let value = snapshot.value as? Int {
+                    if value == 1 {
+                        self.status = true
+                    }else {
+                        self.status = false
+                    }
+                }
+            }
+            return status ?? false
+        }
+
+        set {
+            status = newValue
+        }
+    }
 
     //MARK: - Setting Data
 
     //Setting Motor State
-    mutating func setMotorStates(ref: DatabaseReference!, button: UIButton) {
-        if isMotorPressed {
+    func setMotorStates(ref: DatabaseReference!, button: UIButton) {
+        if !isMotorPressed {
             ref.child("run").setValue(1)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "power-on"), for: .normal)
+                self.isMotorPressed = true
             }
-            isMotorPressed = !isMotorPressed
         } else {
             ref.child("run").setValue(0)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "power-off"), for: .normal)
+                self.isMotorPressed = false
             }
-            isMotorPressed = !isMotorPressed
         }
     }
 
@@ -60,16 +79,15 @@ struct Motor {
                 if value == 1 {
                     DispatchQueue.main.async {
                         button.setImage(UIImage(named: "power-on"), for: .normal)
+                        self.isMotorPressed = true
                     }
                 } else {
                     DispatchQueue.main.async {
                         button.setImage(UIImage(named: "power-off"), for: .normal)
-
+                        self.isMotorPressed = false
                     }
                 }
             }
-
-            //            print("fetch motor")
         }
 
     }
