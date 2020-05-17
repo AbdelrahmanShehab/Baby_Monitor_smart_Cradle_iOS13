@@ -96,11 +96,12 @@ class MusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /// Style Views
         audioView.setShadow()
         musicTableView.layer.cornerRadius = 10.0
         view.setGradientBackground(colorOne: UIColor(cgColor: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), colorTwo: UIColor(cgColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
+        
         getSongName()
-        //        musicTableView.tableFooterView = UIView()
     }
 
     //MARK: - Music Methods

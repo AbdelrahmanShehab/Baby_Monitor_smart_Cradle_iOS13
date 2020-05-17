@@ -30,10 +30,10 @@ class RegisterViewController: UIViewController {
         registerEmailTextField.setPlaceHolder(with: "New E-mail")
         registerPasswordTextField.setPlaceHolder(with: "New Password")
 
-        // Style Views
+        /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
-        registerView.setTreboGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.blue22)
-        registerButton.setGradientBackground(colorOne: K.BrandColors.purple22, colorTwo: K.BrandColors.blueGreen)
+        registerView.setTreboGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
+        registerButton.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.blueGreen)
 
         // Corner Radius for IBOutlets
         registerView.layer.cornerRadius = 10

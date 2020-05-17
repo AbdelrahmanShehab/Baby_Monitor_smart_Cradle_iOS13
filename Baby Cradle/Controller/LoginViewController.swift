@@ -13,8 +13,8 @@ import CLTypingLabel
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var appNameLabel: CLTypingLabel!
+    @IBOutlet weak var loginBlurview: UIVisualEffectView!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var loginEmailTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
@@ -43,13 +43,12 @@ class LoginViewController: UIViewController {
         loginEmailTextField.setPlaceHolder(with: "E-mail")
         loginPasswordTextField.setPlaceHolder(with: "Password")
 
-        // Style Views
-        view.setGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.green)
-        loginView.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.lightGreen)
-        loginButton.setGradientBackground(colorOne: K.BrandColors.moove, colorTwo: K.BrandColors.blueWater)
+        /// Style Views
+        view.setGradientBackground(colorOne: K.BrandColors.blue, colorTwo: K.BrandColors.red)
+        loginButton.setGradientBackground(colorOne: K.BrandColors.red, colorTwo: K.BrandColors.blue)
 
         // Corner Radius for IBOutlets
-        loginView.layer.cornerRadius = 10
+        loginBlurview.layer.cornerRadius = 10
         loginButton.layer.cornerRadius = 5
     }
 

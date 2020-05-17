@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "wifi-signal.png",
+      "filename" : "smart-baby-cradle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "wifi-signal@2x.png",
+      "filename" : "smart-baby-cradle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "wifi-signal@3x.png",
+      "filename" : "smart-baby-cradle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
