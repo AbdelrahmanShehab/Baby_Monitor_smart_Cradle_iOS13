@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
 
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.blue, colorTwo: K.BrandColors.red)
-        loginButton.setGradientBackground(colorOne: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), colorTwo: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
+        loginButton.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), colorTwo: K.BrandColors.marron)
 
         // Corner Radius for IBOutlets
         loginBlurview.layer.cornerRadius = 10
@@ -58,7 +58,9 @@ class LoginViewController: UIViewController {
             
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error{
-                    self.alertLabel.text = e.localizedDescription
+                    Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
+                    sender.shake()
+//                    self.alertLabel.text = e.localizedDescription
                 }else {
                     let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                     self.present(mainTabController, animated: false) {

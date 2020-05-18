@@ -56,7 +56,7 @@ class BabyCradleViewController: UIViewController {
 
     //MARK: - MOTOR ACTION
     @IBAction func motorPowerButton(_ sender: UIButton) {
-
+        sender.pulsate()
         motor.setMotorStates(ref: refMotor, button: motorButton)
     }
 
@@ -68,7 +68,7 @@ class BabyCradleViewController: UIViewController {
 
     //MARK: - FAN ACTION
     @IBAction func fanPressedButton(_ sender: UIButton) {
-
+        sender.flash()
         fan.setFanStates(ref: refFan, button: fanButton)
     }
 

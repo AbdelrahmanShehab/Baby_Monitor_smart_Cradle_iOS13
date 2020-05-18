@@ -22,6 +22,6 @@ struct K {
         static let darkPurple = UIColor(red: 0.21, green: 0.00, blue: 0.20, alpha: 1.00)
         static let lightPurple = UIColor(red: 0.31, green: 0.26, blue: 0.46, alpha: 1.00)
         static let beige = UIColor(red: 0.86, green: 0.83, blue: 0.71, alpha: 1.00)
-
+        static let marron = UIColor(red: 0.50, green: 0.00, blue: 0.00, alpha: 1.00)
     }
 }

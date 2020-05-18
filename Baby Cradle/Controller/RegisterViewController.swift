@@ -46,7 +46,9 @@ class RegisterViewController: UIViewController {
         if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error{
-                    self.alertLabel.text = e.localizedDescription
+                    sender.shake()
+                    Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
+//                    self.alertLabel.text = e.localizedDescription
                 }else{
                     let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                     self.present(mainTabController, animated: false) {
