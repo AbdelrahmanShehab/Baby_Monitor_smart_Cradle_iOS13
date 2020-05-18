@@ -13,7 +13,7 @@ import MBCircularProgressBar
 
 struct Status {
 
-    // Fetching Temperature AND Humidity Data
+    /// Fetching Temperature AND Humidity Data
      func fetchStatusData(ref: DatabaseReference!, progressView: MBCircularProgressBarView) {
         ref.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String {
@@ -45,7 +45,6 @@ struct Status {
                         progressView.progressColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
                 }
             }
-//            print("fetch status")
 
         }
     }

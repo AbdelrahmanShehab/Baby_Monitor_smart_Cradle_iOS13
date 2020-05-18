@@ -35,11 +35,12 @@ class Fan {
 
     //MARK: - Setting Data
 
-    //Setting Fan State
+    /// Setting Fan State
     func setFanStates(ref: DatabaseReference!, button: UIButton) {
         if !isFanPressed {
             ref.child("run").setValue(1)
             DispatchQueue.main.async {
+                button.pulsate()
                 button.setImage(UIImage(named: "fan-on"), for: .normal)
                 self.isFanPressed = true
             }
@@ -53,7 +54,7 @@ class Fan {
         }
     }
 
-    // Setting level Degree state
+    /// Setting level Degree state
     func setFanSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
         slider.value = roundf(slider.value)
 
@@ -71,7 +72,7 @@ class Fan {
 
     //MARK: - Featching Data
 
-    // Fetching Fan Data
+    /// Fetching Fan Data
      func observeFanStates(ref: DatabaseReference!, button: UIButton) {
 
         ref.observe(.value) { (snapShot) in
@@ -79,6 +80,7 @@ class Fan {
 
                 if value == 1 {
                     DispatchQueue.main.async {
+                        button.pulsate()
                         button.setImage(UIImage(named: "fan-on"), for: .normal)
                         self.isFanPressed = true
                     }
@@ -93,7 +95,7 @@ class Fan {
 
     }
 
-    // Fetching Level Degree Data
+    /// Fetching Level Degree Data
      func observeFanLevel(ref: DatabaseReference! , slider:UISlider, label: UILabel) {
         ref.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
@@ -107,8 +109,6 @@ class Fan {
                 }
 
             }
-//            print("fetch level fan")
-
         }
     }
 }

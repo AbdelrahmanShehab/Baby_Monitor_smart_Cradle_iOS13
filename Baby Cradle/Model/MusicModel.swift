@@ -11,7 +11,7 @@ import Firebase
 
 struct Music {
 
-    // Setting Song Value in Real Time Database in Firebase
+    /// Setting Song Value in Real Time Database in Firebase
     func setMusicInRTDFirebase(with songValue: Int)
     {
         let refMusic = Database.database().reference(withPath: "Music")
@@ -20,7 +20,7 @@ struct Music {
         refSong.setValue(songValue)
     }
 
-    // Setting Song Volume in Real Time Database in Firebase
+    /// Setting Song Volume in Real Time Database in Firebase
     func setVolumeRTDFirebase(with songVolume: Float)
     {
         let refMusic = Database.database().reference(withPath: "Music")

@@ -15,7 +15,7 @@ struct SoundDetection {
 
 
 
-    //Fetching Sound Detection DATA
+    // Fetching Sound Detection DATA
     func fetchDetectedSound(ref: DatabaseReference!, imageSound: UIImageView) {
 
         ref.observe(.value) { (snapShot) in
@@ -24,6 +24,7 @@ struct SoundDetection {
                 if value == "yes"{
                     DispatchQueue.main.async {
                         imageSound.image = UIImage(named: "sound-on")
+                        imageSound.flash()
 //                        self.soundAlert(songTitle: "Baby Crying")
                     }
                 } else {
@@ -32,7 +33,6 @@ struct SoundDetection {
                     }
                 }
             }
-            //            print("fetch sound")
 
         }
     }

@@ -22,20 +22,20 @@ class BabyCradleViewController: UIViewController {
     var refSoundDetection: DatabaseReference!
 
     //MARK: - IBOUTLETS
-    // Motor
+    /// Motor
     @IBOutlet weak var motorButton: UIButton!
     @IBOutlet weak var motorSlider: UISlider!
     @IBOutlet weak var motorLevelLabel: UILabel!
-    // FAN
+    /// FAN
     @IBOutlet weak var fanButton: UIButton!
     @IBOutlet weak var fanSlider: UISlider!
     @IBOutlet weak var fanLevelLabel: UILabel!
-    // Temerature & Humidity
+    /// Temerature & Humidity
     @IBOutlet weak var temperatureProgressView: MBCircularProgressBarView!
     @IBOutlet weak var humidityProgressView: MBCircularProgressBarView!
-    // Sound Detection
+    /// Sound Detection
     @IBOutlet weak var soundDetectionImage: UIImageView!
-    // Grid Views of IBOutlets
+    /// Grid Views of IBOutlets
     @IBOutlet var views : [UIView]!
 
 
@@ -56,7 +56,7 @@ class BabyCradleViewController: UIViewController {
 
     //MARK: - MOTOR ACTION
     @IBAction func motorPowerButton(_ sender: UIButton) {
-        sender.pulsate()
+        
         motor.setMotorStates(ref: refMotor, button: motorButton)
     }
 
@@ -68,7 +68,7 @@ class BabyCradleViewController: UIViewController {
 
     //MARK: - FAN ACTION
     @IBAction func fanPressedButton(_ sender: UIButton) {
-        sender.flash()
+
         fan.setFanStates(ref: refFan, button: fanButton)
     }
 
@@ -106,7 +106,7 @@ class BabyCradleViewController: UIViewController {
         let refTemperatureStatus = refStatus.child("Temperature")
         let refreHumidityStatus  = refStatus.child("Humidity")
 
-        // Featching Data in StartUp
+        /// Featching Data in StartUp
         DispatchQueue.main.async {
             self.motor.observeMotorStates(ref: refMotorRun, button: self.motorButton)
             self.motor.observeMotorLevel(ref: refMotorLevel, slider: self.motorSlider, label: self.motorLevelLabel)

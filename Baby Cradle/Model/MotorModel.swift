@@ -35,11 +35,12 @@ class Motor {
 
     //MARK: - Setting Data
 
-    //Setting Motor State
+    /// Setting Motor State
     func setMotorStates(ref: DatabaseReference!, button: UIButton) {
         if !isMotorPressed {
             ref.child("run").setValue(1)
             DispatchQueue.main.async {
+                button.pulsate()
                 button.setImage(UIImage(named: "power-on"), for: .normal)
                 self.isMotorPressed = true
             }
@@ -52,7 +53,7 @@ class Motor {
         }
     }
 
-    // Setting level Degree State
+    /// Setting level Degree State
     func setMotorSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
         slider.value = roundf(slider.value)
 
@@ -70,7 +71,7 @@ class Motor {
 
     //MARK: - Fetching Data
 
-    // Featching Motor Data
+    /// Featching Motor Data
     func observeMotorStates(ref: DatabaseReference!, button: UIButton) {
 
         ref.observe(.value) { (snapShot) in
@@ -78,6 +79,7 @@ class Motor {
                 
                 if value == 1 {
                     DispatchQueue.main.async {
+                        button.pulsate()
                         button.setImage(UIImage(named: "power-on"), for: .normal)
                         self.isMotorPressed = true
                     }
@@ -92,7 +94,7 @@ class Motor {
 
     }
 
-    // Fetching Level Degree Data
+    /// Fetching Level Degree Data
     func observeMotorLevel(ref: DatabaseReference! , slider:UISlider, label: UILabel) {
         ref.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
@@ -105,8 +107,6 @@ class Motor {
                     label.text = "High"
                 }
             }
-            //            print("fetch  level motor")
-
         }
     }
 }
