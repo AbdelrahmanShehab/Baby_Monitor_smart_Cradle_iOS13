@@ -127,15 +127,14 @@ class MusicViewController: UIViewController {
         musicTableView.layer.cornerRadius = 10.0
         view.setGradientBackground(colorOne: UIColor(cgColor: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), colorTwo: UIColor(cgColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
         
-        getSongName()
-
+        chooseSongToPlay()
 
     }
 
     //MARK: - Music Methods
 
-    //FUNCTION THAT GETS THE NAME OF THE SONGS
-    func getSongName()
+    //FUNCTION THAT ALLOW TO CHOSSE SONG FROM PLAYLIST TO PLAY AND GETS THE NAME OF THE SONGS
+    func chooseSongToPlay()
     {
         let folderURL = URL(fileURLWithPath:Bundle.main.resourcePath!)
 
@@ -143,7 +142,7 @@ class MusicViewController: UIViewController {
         {
             let songPath = try FileManager.default.contentsOfDirectory(at: folderURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
 
-            //loop through the found urls
+            /// loop through the found urls
             for song in songPath
             {
                 var mySong = song.absoluteString
@@ -164,6 +163,21 @@ class MusicViewController: UIViewController {
         catch
         {
             print ("ERROR")
+        }
+
+        /// Play Song in Background
+        do
+        {
+          try AVAudioSession
+            .sharedInstance()
+            .setCategory(
+                AVAudioSession.Category.playAndRecord,
+                mode: .default,
+                options: [.defaultToSpeaker]
+            )
+        } catch
+        {
+          print("Failed to set audio session category.  Error: \(error)")
         }
     }
 
