@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Firebase
 
 struct Music {
@@ -27,5 +28,12 @@ struct Music {
         var refVolume: DatabaseReference!
         refVolume = refMusic.child("volume")
         refVolume.setValue(songVolume)
+    }
+
+    /// Function to Change Play/Pause Button Image States
+    func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
+        let imageName = shouldShowPlayOrPauseButton ? "play" : "pause"
+
+        button.setImage(UIImage(named: imageName), for: .normal)
     }
 }
