@@ -13,10 +13,11 @@ import Firebase
 class MusicViewController: UIViewController {
 
     var audioPlayer = AVAudioPlayer()
-    var music = Music()
-    var timer: Timer!
     var playList:[Song] = []
+    var music = Music()
     var thisSong = 0
+    var timer: Timer!
+    var isPopup = false
     var audioStuffed = false
     var isSongPressed = false
 
@@ -74,7 +75,7 @@ class MusicViewController: UIViewController {
 
         if thisSong < playList.count-1 && audioStuffed == true
         {
-            setPauseButtonInSelecterdCell()
+            setPauseButtonOnSelectedCell()
             
             playThisSong(thisOne: playList[thisSong+1].name)
             thisSong += 1
@@ -100,7 +101,7 @@ class MusicViewController: UIViewController {
 
         if thisSong != 0 && audioStuffed == true
         {
-            setPauseButtonInSelecterdCell()
+            setPauseButtonOnSelectedCell()
 
             playThisSong(thisOne: playList[thisSong-1].name)
             thisSong -= 1
@@ -140,9 +141,11 @@ class MusicViewController: UIViewController {
 
     //MARK: - Mute 🔇
     @IBAction func mute(_ sender: UIButton) {
-
+        if isPopup {
+            Alert.showPopUP(on: self)
+        }
         music.setMuteOrUnMute(player: audioPlayer, on: sender)
-
+        isPopup = false
     }
 
     //MARK: - ViewDidLoad Method
@@ -152,13 +155,16 @@ class MusicViewController: UIViewController {
         /// Style Views
         audioView.setShadow()
         artWorkImageView.setShadowImage()
-        musicTableView.layer.cornerRadius = 10.0
+        musicTableView.layer.cornerRadius = 15
         view.setGradientBackground(colorOne: UIColor(cgColor: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)), colorTwo: UIColor(cgColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)))
 
         /// Methods To Configure songs in Playlist and Choose it to play
         configureSongs()
         chooseSongToPlay()
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        isPopup = true
     }
 
     //MARK: - Music Methods
@@ -218,7 +224,7 @@ class MusicViewController: UIViewController {
         }
     }
     /// Show  Pause button Of Selected Cell
-    func setPauseButtonInSelecterdCell() {
+    func setPauseButtonOnSelectedCell() {
         if isSongPressed {
             music.showPlayOrPauseButton(!isSongPressed, on: playOrPauseButton)
 
@@ -283,7 +289,7 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource {
 
             playThisSong(thisOne: song.name)
 
-             setPauseButtonInSelecterdCell()
+             setPauseButtonOnSelectedCell()
 
             /// Render Name AND Image Of Song in View
             songLabel.text = song.name
