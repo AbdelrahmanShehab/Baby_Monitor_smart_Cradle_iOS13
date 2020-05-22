@@ -48,4 +48,12 @@ extension UIView {
 
     }
 
+    func setShadowImage()
+    {
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shadowRadius = 5
+        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = 1
+    }
+
 }

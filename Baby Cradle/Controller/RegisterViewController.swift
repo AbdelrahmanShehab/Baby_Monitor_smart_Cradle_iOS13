@@ -17,6 +17,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
 
+    //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
 

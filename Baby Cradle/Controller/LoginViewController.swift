@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
+    //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
         

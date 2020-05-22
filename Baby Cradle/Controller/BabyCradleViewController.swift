@@ -38,7 +38,8 @@ class BabyCradleViewController: UIViewController {
     /// Grid Views of IBOutlets
     @IBOutlet var views : [UIView]!
 
-
+    
+    //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
 

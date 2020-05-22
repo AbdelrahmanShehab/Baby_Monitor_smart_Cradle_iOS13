@@ -13,8 +13,6 @@ import AVFoundation
 
 struct SoundDetection {
 
-
-
     // Fetching Sound Detection DATA
     func fetchDetectedSound(ref: DatabaseReference!, imageSound: UIImageView) {
 
