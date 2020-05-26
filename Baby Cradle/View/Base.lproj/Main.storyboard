@@ -593,6 +593,7 @@
                         <outlet property="artWorkImageView" destination="Ke4-Cu-J7G" id="ksb-ks-AmR"/>
                         <outlet property="audioView" destination="a8O-S9-b9c" id="zfk-0w-U53"/>
                         <outlet property="musicTableView" destination="a8n-7R-1yj" id="gO3-hZ-McX"/>
+                        <outlet property="muteButton" destination="c1D-tI-dzz" id="sWm-2Q-I10"/>
                         <outlet property="playOrPauseButton" destination="bKP-nO-LeY" id="y0m-4B-5b0"/>
                         <outlet property="playedTimeLabel" destination="BhK-KW-NlJ" id="FfB-1A-ITG"/>
                         <outlet property="songLabel" destination="F2F-DZ-4Cj" id="Tgh-OS-N30"/>

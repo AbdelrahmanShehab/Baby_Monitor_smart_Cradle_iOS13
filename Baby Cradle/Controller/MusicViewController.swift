@@ -27,7 +27,8 @@ class MusicViewController: UIViewController {
     @IBOutlet weak var audioView: UIView!
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var playedTimeLabel: UILabel!
-
+    @IBOutlet weak var muteButton: UIButton!
+    
 
     // PUT NAMES AND ARTWORK IMAGE OF SONGS AND STRUCTURE THEM IN PLAYLIST 
     func configureSongs()
@@ -135,6 +136,7 @@ class MusicViewController: UIViewController {
 
             /// Set Volume Value of The Song in RTDFirebase
             music.setVolumeRTDFirebase(with: sender.value)
+            muteButton.setImage(UIImage(systemName: "speaker.2.fill"), for: .normal)
         }
     }
 
