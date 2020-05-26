@@ -48,8 +48,7 @@ class MusicViewController: UIViewController {
         if audioStuffed == true && audioPlayer.isPlaying == false
         {
             audioPlayer.play()
-            setPlayOrPauseButtonImage()
-
+            music.setPlayOrPauseButtonImage(isSongPressed, on: playOrPauseButton)
             /// Set zero in Firebase when song ends
             songShouldPauseWhenEnds()
 
@@ -59,7 +58,7 @@ class MusicViewController: UIViewController {
         } else if audioStuffed == true && audioPlayer.isPlaying
         {
             audioPlayer.pause()
-            setPlayOrPauseButtonImage()
+            music.setPlayOrPauseButtonImage(isSongPressed, on: playOrPauseButton)
 
             /// Setting Music Off in Firebase Realtime Database
             music.setMusicInRTDFirebase(with: 0)
@@ -75,7 +74,7 @@ class MusicViewController: UIViewController {
 
         if thisSong < playList.count-1 && audioStuffed == true
         {
-            setPauseButtonOnSelectedCell()
+            music.setPauseButtonOnSelectedCell(isSongPressed, on: playOrPauseButton)
             
             playThisSong(thisOne: playList[thisSong+1].name)
             thisSong += 1
@@ -101,7 +100,7 @@ class MusicViewController: UIViewController {
 
         if thisSong != 0 && audioStuffed == true
         {
-            setPauseButtonOnSelectedCell()
+            music.setPauseButtonOnSelectedCell(isSongPressed, on: playOrPauseButton)
 
             playThisSong(thisOne: playList[thisSong-1].name)
             thisSong -= 1
@@ -214,24 +213,6 @@ class MusicViewController: UIViewController {
         }
     }
 
-    /// Show Play Or Pause button Image Function
-    func setPlayOrPauseButtonImage() {
-        if isSongPressed {
-            music.showPlayOrPauseButton(!isSongPressed, on: playOrPauseButton)
-
-        } else {
-            music.showPlayOrPauseButton(!isSongPressed, on: playOrPauseButton)
-        }
-    }
-    /// Show  Pause button Of Selected Cell
-    func setPauseButtonOnSelectedCell() {
-        if isSongPressed {
-            music.showPlayOrPauseButton(!isSongPressed, on: playOrPauseButton)
-
-        } else {
-            music.showPlayOrPauseButton(isSongPressed, on: playOrPauseButton)
-        }
-    }
 
     /// Timer to Pause Automatically in Firebase
     @objc func setZeroSongWhenEndsInRTDFirebase() {
@@ -289,7 +270,7 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource {
 
             playThisSong(thisOne: song.name)
 
-             setPauseButtonOnSelectedCell()
+            music.setPauseButtonOnSelectedCell(isSongPressed, on: playOrPauseButton)
 
             /// Render Name AND Image Of Song in View
             songLabel.text = song.name

@@ -66,4 +66,22 @@ struct Music {
 
         }
     }
+
+    /// Show Play Or Pause button Image Function
+    func setPlayOrPauseButtonImage(_ isPressed: Bool, on button: UIButton) {
+        if isPressed == true {
+            showPlayOrPauseButton(!isPressed, on: button)
+        } else {
+            showPlayOrPauseButton(!isPressed, on: button)
+        }
+    }
+
+    /// Show  Pause button Of Selected Cell
+    func setPauseButtonOnSelectedCell(_ isPressed: Bool, on button: UIButton) {
+        if isPressed == true {
+            showPlayOrPauseButton(!isPressed, on: button)
+        } else {
+            showPlayOrPauseButton(isPressed, on: button)
+        }
+    }
 }
