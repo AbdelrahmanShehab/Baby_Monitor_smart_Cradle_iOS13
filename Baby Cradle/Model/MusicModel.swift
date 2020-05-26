@@ -41,15 +41,17 @@ struct Music {
     }
 
     /// Function to Repeat Song once Or Infinitely
-    mutating func setRepeat(player: AVAudioPlayer,on button: UIButton) {
+    mutating func setRepeat(player: AVAudioPlayer, on button: UIButton) {
 
         if (player.isPlaying == true || player.isPlaying == false) && isRepeated == false{
             player.numberOfLoops = 1
             button.setImage(UIImage(systemName: "repeat.1"), for: .normal)
+            button.setBackground()
         } else if (player.isPlaying == true || player.isPlaying == false) && isRepeated == true
         {
             player.numberOfLoops = -1
             button.setImage(UIImage(systemName: "repeat"), for: .normal)
+            button.setBackground()
         }
         isRepeated = !isRepeated
     }
