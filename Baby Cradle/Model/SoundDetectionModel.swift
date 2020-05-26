@@ -23,7 +23,6 @@ struct SoundDetection {
                     DispatchQueue.main.async {
                         imageSound.image = UIImage(named: "sound-on")
                         imageSound.flash()
-//                        self.soundAlert(songTitle: "Baby Crying")
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -34,15 +33,6 @@ struct SoundDetection {
 
         }
     }
-
-    // Detection Sound Alert
-//     func soundAlert(songTitle: String) {
-//        var player = AVAudioPlayer()
-//        let url = Bundle.main.url(forResource: songTitle, withExtension: "wav")
-//        player = try! AVAudioPlayer(contentsOf: url!)
-//        player.play()
-//
-//    }
 
 }
 

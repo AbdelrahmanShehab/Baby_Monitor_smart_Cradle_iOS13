@@ -13,9 +13,9 @@ import Firebase
 
 struct Music {
 
-    private var isRepeated = false
+    private var status = 0
 
-    /// Setting Song Value in Real Time Database in Firebase
+    // Setting Song Value in Real Time Database in Firebase
     func setMusicInRTDFirebase(with songValue: Int)
     {
         let refMusic = Database.database().reference(withPath: "Music")
@@ -24,36 +24,13 @@ struct Music {
         refSong.setValue(songValue)
     }
 
-    /// Setting Song Volume in Real Time Database in Firebase
+    // Setting Song Volume in Real Time Database in Firebase
     func setVolumeRTDFirebase(with songVolume: Float)
     {
         let refMusic = Database.database().reference(withPath: "Music")
         var refVolume: DatabaseReference!
         refVolume = refMusic.child("volume")
         refVolume.setValue(songVolume)
-    }
-
-    /// Function to Change Play/Pause Button Image States
-    func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
-        let imageName = shouldShowPlayOrPauseButton ? "play" : "pause"
-
-        button.setImage(UIImage(named: imageName), for: .normal)
-    }
-
-    /// Function to Repeat Song once Or Infinitely
-    mutating func setRepeat(player: AVAudioPlayer, on button: UIButton) {
-
-        if (player.isPlaying == true || player.isPlaying == false) && isRepeated == false{
-            player.numberOfLoops = 1
-            button.setImage(UIImage(systemName: "repeat.1"), for: .normal)
-            button.setBackground()
-        } else if (player.isPlaying == true || player.isPlaying == false) && isRepeated == true
-        {
-            player.numberOfLoops = -1
-            button.setImage(UIImage(systemName: "repeat"), for: .normal)
-            button.setBackground()
-        }
-        isRepeated = !isRepeated
     }
 
     /// Function to Mute Or Unmute Song
@@ -67,6 +44,40 @@ struct Music {
             button.setImage(UIImage(systemName: "speaker.2.fill"), for: .normal)
 
         }
+    }
+
+    /// Function to Repeat Song once Or Infinitely
+    mutating func setRepeat(player: AVAudioPlayer, on button: UIButton) {
+
+        if (player.isPlaying == true || player.isPlaying == false) && status == 0
+        {
+            player.numberOfLoops = -1
+            button.setImage(UIImage(systemName: "repeat"), for: .normal)
+            button.setBackground()
+            status += 1
+        }
+        else if (player.isPlaying == true || player.isPlaying == false) && status == 1
+        {
+            player.numberOfLoops = 1
+            button.setImage(UIImage(systemName: "repeat.1"), for: .normal)
+            button.setBackground()
+            status += 1
+        }
+        else if (player.isPlaying == true || player.isPlaying == false) && status == 2{
+            player.numberOfLoops = 0
+            button.setImage(UIImage(systemName: "repeat"), for: .normal)
+            button.layer.backgroundColor = .none
+            status = 0
+        }
+    }
+
+    // Function To Show Play/Pause States
+
+    /// Function to Change Play/Pause Button Image States
+    func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
+        let imageName = shouldShowPlayOrPauseButton ? "play" : "pause"
+
+        button.setImage(UIImage(named: imageName), for: .normal)
     }
 
     /// Show Play Or Pause button Image Function
