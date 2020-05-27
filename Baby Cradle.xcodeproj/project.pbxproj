@@ -29,6 +29,7 @@
 		636D26242472AA5D00241749 /* ButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26232472AA5D00241749 /* ButtonX.swift */; };
 		636D26262472B25A00241749 /* AlertX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26252472B25A00241749 /* AlertX.swift */; };
 		636D26282472B7BA00241749 /* ImageX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26272472B7BA00241749 /* ImageX.swift */; };
+		63812868247EF61B00FEC5BB /* Baby Crying.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63812867247EF61B00FEC5BB /* Baby Crying.wav */; };
 		6389336E2462D4E000694BDE /* LiveStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */; };
 		63C5CC922477226400438E21 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5CC912477226400438E21 /* Song.swift */; };
 		63C7863E2457006E005571F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7863D2457006E005571F8 /* Constants.swift */; };
@@ -65,6 +66,7 @@
 		636D26232472AA5D00241749 /* ButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonX.swift; sourceTree = "<group>"; };
 		636D26252472B25A00241749 /* AlertX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertX.swift; sourceTree = "<group>"; };
 		636D26272472B7BA00241749 /* ImageX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageX.swift; sourceTree = "<group>"; };
+		63812867247EF61B00FEC5BB /* Baby Crying.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Baby Crying.wav"; sourceTree = "<group>"; };
 		6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamingViewController.swift; sourceTree = "<group>"; };
 		63C5CC912477226400438E21 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		63C7863D2457006E005571F8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		631023D4246A0794005AC511 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				63812867247EF61B00FEC5BB /* Baby Crying.wav */,
 				634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */,
 				634F9D6C246EEA390079AB99 /* Cradle.mp3 */,
 			);
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63812868247EF61B00FEC5BB /* Baby Crying.wav in Resources */,
 				632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */,
 				63F20F31245AFE76001D6162 /* GoogleService-Info.plist in Resources */,
 				634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */,

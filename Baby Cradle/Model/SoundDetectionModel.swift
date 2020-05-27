@@ -11,9 +11,11 @@ import UIKit
 import Firebase
 import AVFoundation
 
-struct SoundDetection {
+class SoundDetection {
 
-    // Fetching Sound Detection DATA
+    var player:AVAudioPlayer = AVAudioPlayer()
+
+    /// Fetching Sound Detection DATA
     func fetchDetectedSound(ref: DatabaseReference!, imageSound: UIImageView) {
 
         ref.observe(.value) { (snapShot) in
@@ -22,6 +24,7 @@ struct SoundDetection {
                 if value == "yes"{
                     DispatchQueue.main.async {
                         imageSound.image = UIImage(named: "sound-on")
+                        self.playSound(named: "Baby Crying")
                         imageSound.flash()
                     }
                 } else {
@@ -33,6 +36,16 @@ struct SoundDetection {
 
         }
     }
+
+    /// Function to Play Sound Alert When Baby is Crying
+    @discardableResult func playSound(named soundName: String) -> AVAudioPlayer {
+
+
+         let audioPath = Bundle.main.path(forResource: soundName, ofType: "wav")
+         player = try! AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+         player.play()
+         return player
+     }
 
 }
 
