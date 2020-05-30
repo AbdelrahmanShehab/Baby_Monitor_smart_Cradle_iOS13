@@ -13,6 +13,8 @@ import Firebase
 class Fan {
 
     private var status : Bool?
+    let refFan = Database.database().reference(withPath: "Fan")
+
     private var isFanPressed: Bool {
         get {
             let refFanRun = Database.database().reference()
@@ -36,9 +38,11 @@ class Fan {
     //MARK: - Setting Data
 
     /// Setting Fan State
-    func setFanStates(ref: DatabaseReference!, button: UIButton) {
+    func setFanStates(on button: UIButton) {
+        let refFanRun = refFan.child("run")
+
         if !isFanPressed {
-            ref.child("run").setValue(1)
+            refFanRun.setValue(1)
             DispatchQueue.main.async {
                 button.pulsate()
                 button.setImage(UIImage(named: "fan-on"), for: .normal)
@@ -46,7 +50,7 @@ class Fan {
             }
             
         } else {
-            ref.child("run").setValue(0)
+            refFanRun.setValue(0)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "fan-off"), for: .normal)
             }
@@ -55,27 +59,46 @@ class Fan {
     }
 
     /// Setting level Degree state
-    func setFanSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
+    func setFanSlider(on slider: UISlider, with label: UILabel) {
+        let refFanLevel = refFan.child("level")
         slider.value = roundf(slider.value)
 
         if slider.value == 1 {
             label.text = "Low"
-            ref.setValue(1)
+            refFanLevel.setValue(1)
         } else if slider.value == 2 {
             label.text = "Medium"
-            ref.setValue(2)
+            refFanLevel.setValue(2)
         } else {
             label.text = "High"
-            ref.setValue(3)
+            refFanLevel.setValue(3)
         }
+    }
+
+    /// Function To Turn Off Fan Before SignOut  by Setting Zero in Firebase
+    func turnFanOffBeforeSignOut() {
+        let refFanRun = refFan.child("run")
+
+        refFanRun.setValue(0) { (error, ref) in
+            if error == nil {
+                try! Auth.auth().signOut()
+            }
+        }
+    }
+
+    /// Function To Turn Off Fan When The App Quits
+    func turnFanOffWhenQuit() {
+        let refFanRun = refFan.child("run")
+        refFanRun.setValue(0)
     }
 
     //MARK: - Featching Data
 
     /// Fetching Fan Data
-     func observeFanStates(ref: DatabaseReference!, button: UIButton) {
+     func observeFanStates(on button: UIButton) {
+        let refFanRun = refFan.child("run")
 
-        ref.observe(.value) { (snapShot) in
+        refFanRun.observe(.value) { (snapShot) in
             if let value = snapShot.value as? Int {
 
                 if value == 1 {
@@ -96,8 +119,10 @@ class Fan {
     }
 
     /// Fetching Level Degree Data
-     func observeFanLevel(ref: DatabaseReference! , slider:UISlider, label: UILabel) {
-        ref.observe(.value) { (snapShot) in
+     func observeFanLevel(on slider:UISlider, with label: UILabel) {
+        let refFanLevel = refFan.child("level")
+
+        refFanLevel.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
                 slider.value = level
                 if slider.value == 1 {

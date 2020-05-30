@@ -13,12 +13,14 @@ import AVFoundation
 
 class SoundDetection {
 
+    let refSoundDetection = Database.database().reference(withPath: "Sound Detection")
     var player:AVAudioPlayer = AVAudioPlayer()
 
     /// Fetching Sound Detection DATA
-    func fetchDetectedSound(ref: DatabaseReference!, imageSound: UIImageView) {
+    func fetchDetectedSound(on imageSound: UIImageView) {
+        let refDetectedSound = refSoundDetection.child("detected")
 
-        ref.observe(.value) { (snapShot) in
+        refDetectedSound.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String{
                 
                 if value == "yes"{

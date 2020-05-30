@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="Xrw-MY-OP3">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="QZn-vR-Phy" customClass="LoginViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="QZn-vR-Phy" customClass="LoginViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1d-sf-1gs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +201,7 @@
         <!-- 👶🏼 Smart Baby Cradle-->
         <scene sceneID="5xs-8Z-mHd">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PsJ-3m-DHH" customClass="BabyCradleViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BabyCradleViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PsJ-3m-DHH" customClass="BabyCradleViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZKJ-yj-T0b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKm-d3-RIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17221.599999999999" y="2255.6221889055473"/>
+            <point key="canvasLocation" x="16985" y="1450"/>
         </scene>
         <!--Live Streaming-->
         <scene sceneID="6dc-Qt-aRd">
@@ -473,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD8-JS-k2P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18225" y="3144"/>
+            <point key="canvasLocation" x="18092" y="1607"/>
         </scene>
         <!--Music-->
         <scene sceneID="65S-t8-Xfg">
@@ -601,12 +601,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0t9-U5-Yas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15116" y="1421.7391304347827"/>
+            <point key="canvasLocation" x="15054" y="1450"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2kH-bi-f03">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8HX-GH-fYl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8HX-GH-fYl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YS4-pz-H1k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -617,6 +617,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ova-t0-zvw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="QZn-vR-Phy" kind="relationship" relationship="rootViewController" id="nSN-2c-zpa"/>
                     </connections>
@@ -642,12 +645,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-RW-Eto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16046" y="550"/>
+            <point key="canvasLocation" x="15532" y="548"/>
         </scene>
         <!--Control-->
         <scene sceneID="STg-zm-vxu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="ziz-wZ-nLs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ziz-wZ-nLs" customClass="NavigationViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Control" image="gear" catalog="system" selectedImage="gear" id="fSk-CG-IeE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY6-Mx-Kzf">
@@ -664,7 +667,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhc-gX-Ufp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16985" y="1422"/>
+            <point key="canvasLocation" x="16590" y="547"/>
         </scene>
     </scenes>
     <resources>

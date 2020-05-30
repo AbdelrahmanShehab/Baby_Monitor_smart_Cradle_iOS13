@@ -16,10 +16,8 @@ class BabyCradleViewController: UIViewController {
     var fan = Fan()
     var soundDetection = SoundDetection()
     var status = Status()
-    var refMotor: DatabaseReference!
-    var refFan: DatabaseReference!
-    var refStatus: DatabaseReference!
-    var refSoundDetection: DatabaseReference!
+    var music = Music()
+    var musicVC = MusicViewController()
 
     //MARK: - IBOUTLETS
     /// Motor
@@ -58,30 +56,33 @@ class BabyCradleViewController: UIViewController {
     //MARK: - MOTOR ACTION
     @IBAction func motorPowerButton(_ sender: UIButton) {
         
-        motor.setMotorStates(ref: refMotor, button: motorButton)
+        motor.setMotorStates(on: motorButton)
     }
 
     @IBAction func motorLevelSlider(_ sender: UISlider) {
-        let refMotorLevel = refMotor.child("level")
 
-        motor.setMotorSlider(ref: refMotorLevel, slider: motorSlider, label: motorLevelLabel)
+        motor.setMotorSlider(on: motorSlider, with: motorLevelLabel)
     }
 
     //MARK: - FAN ACTION
     @IBAction func fanPressedButton(_ sender: UIButton) {
 
-        fan.setFanStates(ref: refFan, button: fanButton)
+        fan.setFanStates(on: fanButton)
     }
 
     @IBAction func fanLevelSlider(_ sender: UISlider) {
-        let refFanLevel = refFan.child("level")
 
-        fan.setFanSlider(ref: refFanLevel, slider: fanSlider, label: fanLevelLabel)
+        fan.setFanSlider(on: fanSlider, with: fanLevelLabel)
     }
 
     //MARK: - Sign Out
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
 
+        /// Turn Off Actions and Set Them with Zero in Firebase
+        let audio = musicVC.audioPlayer
+        motor.turnMotorOffBeforeSignOut()
+        fan.turnFanOffBeforeSignOut()
+        music.turnMusicOffBeforeSignOut(player: audio)
         do {
             try Auth.auth().signOut()
             dismiss(animated: true, completion: nil)
@@ -91,32 +92,23 @@ class BabyCradleViewController: UIViewController {
 
     }
 
+//    func finishLoggedOut() {
+//        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+//        UserDefaults.standard.synchronize()
+//    }
+
     //MARK: - Fetching Data From Firebase
     func fetchDataFromFirebase() {
 
-        // Firebase RealTime Database JSON Structure
-        refMotor = Database.database().reference(withPath: "Motor")
-        let refMotorRun = refMotor.child("run")
-        let refMotorLevel = refMotor.child("level")
-        refFan = Database.database().reference(withPath: "Fan")
-        let refFanRun = refFan.child("run")
-        let refFanLevel = refFan.child("level")
-        refSoundDetection = Database.database().reference(withPath: "Sound Detection")
-        let refDetectedSound = refSoundDetection.child("detected")
-        refStatus =  Database.database().reference(withPath: "Status")
-        let refTemperatureStatus = refStatus.child("Temperature")
-        let refreHumidityStatus  = refStatus.child("Humidity")
-
         /// Featching Data in StartUp
         DispatchQueue.main.async {
-            self.motor.observeMotorStates(ref: refMotorRun, button: self.motorButton)
-            self.motor.observeMotorLevel(ref: refMotorLevel, slider: self.motorSlider, label: self.motorLevelLabel)
-            self.fan.observeFanStates(ref: refFanRun, button: self.fanButton)
-            self.fan.observeFanLevel(ref: refFanLevel, slider: self.fanSlider, label: self.fanLevelLabel)
-
-            self.soundDetection.fetchDetectedSound(ref: refDetectedSound, imageSound: self.soundDetectionImage)
-            self.status.fetchStatusData(ref: refreHumidityStatus, progressView: self.humidityProgressView)
-            self.status.fetchStatusData(ref: refTemperatureStatus, progressView: self.temperatureProgressView)
+            self.motor.observeMotorStates(on: self.motorButton)
+            self.motor.observeMotorLevel(on: self.motorSlider, with: self.motorLevelLabel)
+            self.fan.observeFanStates(on: self.fanButton)
+            self.fan.observeFanLevel(on: self.fanSlider, with: self.fanLevelLabel)
+            self.soundDetection.fetchDetectedSound(on: self.soundDetectionImage)
+            self.status.fetchTemperatureStatus(on: self.temperatureProgressView)
+            self.status.fetchHumidityStatus(on: self.humidityProgressView)
 
             //Hide Spinner
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(1500)) {
@@ -126,3 +118,4 @@ class BabyCradleViewController: UIViewController {
     }
 
 }
+

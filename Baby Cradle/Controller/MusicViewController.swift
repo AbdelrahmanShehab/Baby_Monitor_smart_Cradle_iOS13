@@ -41,7 +41,7 @@ class MusicViewController: UIViewController {
             imageName: "shark_artwork"))
     }
 
-    //MARK: - Play ▶️
+    //MARK: - Play/Pause ⏯
     @IBAction func didTapPlayOrPause(_ sender: UIButton)
     {
         isSongPressed = !isSongPressed

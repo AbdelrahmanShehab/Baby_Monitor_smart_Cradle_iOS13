@@ -7,23 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var window: UIWindow?
+    var music = Music()
+    var motor = Motor()
+    var fan = Fan()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
         guard let _ = (scene as? UIWindowScene) else { return }
+
+        /// Function To listen Changes Of User Logging IN/OUT
+        let auth = Auth.auth()
+        auth.addStateDidChangeListener { (_, user) in
+            if user != nil {
+                let babyVC = self.mainStoryBoard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+                DispatchQueue.main.async {
+                    Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
+                    self.window?.rootViewController = babyVC
+                }
+
+            } else {
+                let loginVC = self.mainStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                DispatchQueue.main.async {
+                    Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
+                    self.window?.rootViewController = loginVC
+                }
+            }
+        }
+
+//        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+//
+//         if(userLoginStatus)
+//         {
+//             print(userLoginStatus)
+//             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//             let babyVC = mainStoryBoard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+//             window?.rootViewController = babyVC
+//             window?.makeKeyAndVisible()
+//
+//         }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+
+        DispatchQueue.main.async {
+            self.motor.turnMotorOffWhenQuit()
+            self.fan.turnFanOffWhenQuit()
+            self.music.turnMusicOffWhenQuit()
+        }
+
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

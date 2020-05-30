@@ -13,6 +13,8 @@ import Firebase
 class Motor {
 
     private var status : Bool?
+    let refMotor = Database.database().reference(withPath: "Motor")
+
     private var isMotorPressed: Bool {
         get {
             let refMotorRun = Database.database().reference()
@@ -36,16 +38,17 @@ class Motor {
     //MARK: - Setting Data
 
     /// Setting Motor State
-    func setMotorStates(ref: DatabaseReference!, button: UIButton) {
+    func setMotorStates(on button: UIButton) {
         if !isMotorPressed {
-            ref.child("run").setValue(1)
+
+            refMotor.child("run").setValue(1)
             DispatchQueue.main.async {
                 button.pulsate()
                 button.setImage(UIImage(named: "power-on"), for: .normal)
                 self.isMotorPressed = true
             }
         } else {
-            ref.child("run").setValue(0)
+            refMotor.child("run").setValue(0)
             DispatchQueue.main.async {
                 button.setImage(UIImage(named: "power-off"), for: .normal)
                 self.isMotorPressed = false
@@ -54,27 +57,45 @@ class Motor {
     }
 
     /// Setting level Degree State
-    func setMotorSlider(ref: DatabaseReference!, slider: UISlider, label: UILabel) {
+    func setMotorSlider(on slider: UISlider, with label: UILabel) {
+        let refMotorLevel = refMotor.child("level")
         slider.value = roundf(slider.value)
 
         if slider.value == 1 {
             label.text = "Low"
-            ref.setValue(1)
+            refMotorLevel.setValue(1)
         } else if slider.value == 2 {
             label.text = "Medium"
-            ref.setValue(2)
+            refMotorLevel.setValue(2)
         } else {
             label.text = "High"
-            ref.setValue(3)
+            refMotorLevel.setValue(3)
         }
+    }
+
+    /// Function To Turn Off Motor Before SignOut by Setting Zero in Firebase
+    func turnMotorOffBeforeSignOut() {
+        let refMotorRun = refMotor.child("run")
+        refMotorRun.setValue(0) { (error, ref) in
+            if error == nil {
+                try! Auth.auth().signOut()
+            }
+        }
+    }
+
+    /// Function To Turn Off Motor When The App Quits
+    func turnMotorOffWhenQuit() {
+        let refMotorRun = refMotor.child("run")
+        refMotorRun.setValue(0)
     }
 
     //MARK: - Fetching Data
 
     /// Featching Motor Data
-    func observeMotorStates(ref: DatabaseReference!, button: UIButton) {
+    func observeMotorStates(on button: UIButton) {
+        let refMotorRun = refMotor.child("run")
 
-        ref.observe(.value) { (snapShot) in
+        refMotorRun.observe(.value) { (snapShot) in
             if let value = snapShot.value as? Int {
                 
                 if value == 1 {
@@ -95,8 +116,10 @@ class Motor {
     }
 
     /// Fetching Level Degree Data
-    func observeMotorLevel(ref: DatabaseReference! , slider:UISlider, label: UILabel) {
-        ref.observe(.value) { (snapShot) in
+    func observeMotorLevel(on slider:UISlider, with label: UILabel) {
+        let refMotorLevel = refMotor.child("level")
+
+        refMotorLevel.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
                 slider.value = level
                 if slider.value == 1 {
