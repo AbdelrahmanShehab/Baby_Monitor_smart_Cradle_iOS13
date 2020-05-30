@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerEmailTextField: UITextField!
     @IBOutlet weak var registerPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
-
+    
     //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
         registerView.setTreboGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
         registerButton.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.blueGreen)
 
-        // Corner Radius for IBOutlets
+        /// Corner Radius for IBOutlets
         registerView.layer.cornerRadius = 10
         registerButton.layer.cornerRadius = 5
     }

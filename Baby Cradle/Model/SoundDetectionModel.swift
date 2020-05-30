@@ -13,12 +13,12 @@ import AVFoundation
 
 class SoundDetection {
 
-    let refSoundDetection = Database.database().reference(withPath: "Sound Detection")
+    let refSoundDetection = K.RTDFirebase.SoundDetection
     var player:AVAudioPlayer = AVAudioPlayer()
 
     /// Fetching Sound Detection DATA
     func fetchDetectedSound(on imageSound: UIImageView) {
-        let refDetectedSound = refSoundDetection.child("detected")
+        let refDetectedSound = K.RTDFirebase.detected
 
         refDetectedSound.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String{

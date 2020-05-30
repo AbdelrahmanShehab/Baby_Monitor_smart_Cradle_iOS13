@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
 
 struct K {
     static let appName = "👶🏼 Smart Baby Cradle"
 
+    struct RTDFirebase {
+        static let Motor = Database.database().reference(withPath: "Motor")
+        static let runMotor = Motor.child("run")
+        static let motorLevel = Motor.child("level")
+        static let Fan = Database.database().reference(withPath: "Fan")
+        static let runFan = Fan.child("run")
+        static let fanLevel = Fan.child("level")
+        static let SoundDetection = Database.database().reference(withPath: "Sound Detection")
+        static let detected = SoundDetection.child("detected")
+        static let Status = Database.database().reference(withPath: "Status")
+        static let Temperature = Status.child("Temperature")
+        static let Humidity = Status.child("Humidity")
+        static let Music = Database.database().reference(withPath: "Music")
+        static let song = Music.child("song")
+        static let volume = Music.child("volume")
+    }
     struct BrandColors {
         static let red = UIColor(red: 0.73, green: 0.17, blue: 0.15, alpha: 1.00)
         static let blue = UIColor(red: 0.08, green: 0.40, blue: 0.75, alpha: 1.00)

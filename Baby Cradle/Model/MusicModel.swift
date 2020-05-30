@@ -14,20 +14,18 @@ import Firebase
 struct Music {
 
     private var status = 0
-    let refMusic = Database.database().reference(withPath: "Music")
+    let refMusic = K.RTDFirebase.Music
 
     // Setting Song Value in Real Time Database in Firebase
     func setMusicInRTDFirebase(with songValue: Int)
     {
-        let refSong = refMusic.child("song")
-        refSong.setValue(songValue)
+        K.RTDFirebase.song.setValue(songValue)
     }
 
     // Setting Song Volume in Real Time Database in Firebase
     func setVolumeRTDFirebase(with songVolume: Float)
     {
-        let refVolume = refMusic.child("volume")
-        refVolume.setValue(songVolume)
+        K.RTDFirebase.volume.setValue(songVolume)
     }
 
     /// Function to Mute Or Unmute Song
@@ -101,7 +99,7 @@ struct Music {
         if audioStuff && player.isPlaying {
             player.pause()
         }
-        refMusic.child("song").setValue(0) { (error, ref) in
+        K.RTDFirebase.song.setValue(0) { (error, ref) in
             if error == nil {
                 try! Auth.auth().signOut()
             }
@@ -110,7 +108,6 @@ struct Music {
 
     /// Function To Turn Music Off When The App Quits
     func turnMusicOffWhenQuit() {
-        let refSong = refMusic.child("song")
-        refSong.setValue(0)
+        K.RTDFirebase.song.setValue(0)
     }
 }

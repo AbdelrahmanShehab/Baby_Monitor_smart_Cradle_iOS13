@@ -603,10 +603,10 @@
             </objects>
             <point key="canvasLocation" x="15054" y="1450"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation View Controller-->
         <scene sceneID="2kH-bi-f03">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8HX-GH-fYl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8HX-GH-fYl" customClass="MainNavigationViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YS4-pz-H1k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

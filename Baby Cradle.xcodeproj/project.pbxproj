@@ -21,6 +21,7 @@
 		632D3E66245461590061A531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E64245461590061A531 /* Main.storyboard */; };
 		632D3E682454615B0061A531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E672454615B0061A531 /* Assets.xcassets */; };
 		632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E692454615B0061A531 /* LaunchScreen.storyboard */; };
+		634BCBD32482E6670020A6DE /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BCBD22482E6660020A6DE /* MainNavigationViewController.swift */; };
 		634F9D67246EC90D0079AB99 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D66246EC90D0079AB99 /* MusicViewController.swift */; };
 		634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */; };
 		634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D6C246EEA390079AB99 /* Cradle.mp3 */; };
@@ -58,6 +59,7 @@
 		632D3E672454615B0061A531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632D3E6A2454615B0061A531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		632D3E6C2454615B0061A531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634BCBD22482E6660020A6DE /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		634F9D66246EC90D0079AB99 /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Shark Doo Doo.mp3"; sourceTree = "<group>"; };
 		634F9D6C246EEA390079AB99 /* Cradle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cradle.mp3; sourceTree = "<group>"; };
@@ -139,10 +141,10 @@
 				632D3E5E245461590061A531 /* AppDelegate.swift */,
 				632D3E60245461590061A531 /* SceneDelegate.swift */,
 				63C7863D2457006E005571F8 /* Constants.swift */,
-				6323969F2466D6FF00EB5A2C /* Extensions */,
 				63FB8CC62455CD6100AEAD39 /* Model */,
 				63FB8CC72455CD6B00AEAD39 /* View */,
 				63FB8CC82455CD7400AEAD39 /* Controller */,
+				6323969F2466D6FF00EB5A2C /* Extensions */,
 				631023D4246A0794005AC511 /* Songs */,
 				632D3E672454615B0061A531 /* Assets.xcassets */,
 				632D3E6C2454615B0061A531 /* Info.plist */,
@@ -182,6 +184,7 @@
 				634F9D66246EC90D0079AB99 /* MusicViewController.swift */,
 				6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */,
 				631023D7246AE2E3005AC511 /* MainTabBarViewController.swift */,
+				634BCBD22482E6660020A6DE /* MainNavigationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				63C5CC922477226400438E21 /* Song.swift in Sources */,
 				636D26262472B25A00241749 /* AlertX.swift in Sources */,
 				632D3E61245461590061A531 /* SceneDelegate.swift in Sources */,
+				634BCBD32482E6670020A6DE /* MainNavigationViewController.swift in Sources */,
 				631023D8246AE2E3005AC511 /* MainTabBarViewController.swift in Sources */,
 				63FB8CCA2455CDDE00AEAD39 /* RegisterViewController.swift in Sources */,
 				634F9D6F246F099F0079AB99 /* MusicModel.swift in Sources */,

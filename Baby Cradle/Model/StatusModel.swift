@@ -12,11 +12,11 @@ import Firebase
 import MBCircularProgressBar
 
 struct Status {
-    let refStatus =  Database.database().reference(withPath: "Status")
+    let refStatus =  K.RTDFirebase.Status
 
     /// Fetching Temperature Status
      func fetchTemperatureStatus(on progressView: MBCircularProgressBarView) {
-        let refTemperatureStatus = refStatus.child("Temperature")
+        let refTemperatureStatus = K.RTDFirebase.Temperature
         
         refTemperatureStatus.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String {
@@ -55,7 +55,7 @@ struct Status {
     /// Fetching Humidity Status
     func fetchHumidityStatus(on progressView: MBCircularProgressBarView) {
 
-        let refHumidityStatus = refStatus.child("Humidity")
+        let refHumidityStatus = K.RTDFirebase.Humidity
         refHumidityStatus.observe(.value) { (snapShot) in
             if let value = snapShot.value as? String {
 

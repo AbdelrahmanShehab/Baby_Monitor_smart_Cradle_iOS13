@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
 
             } else {
-                let loginVC = self.mainStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                let loginVC = self.mainStoryBoard.instantiateViewController(withIdentifier: "MainNavigationViewController") as! MainNavigationViewController
                 DispatchQueue.main.async {
                     Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
                     self.window?.rootViewController = loginVC

@@ -13,7 +13,7 @@ import Firebase
 class Fan {
 
     private var status : Bool?
-    let refFan = Database.database().reference(withPath: "Fan")
+    let refFan = K.RTDFirebase.Fan
 
     private var isFanPressed: Bool {
         get {
@@ -39,7 +39,7 @@ class Fan {
 
     /// Setting Fan State
     func setFanStates(on button: UIButton) {
-        let refFanRun = refFan.child("run")
+        let refFanRun = K.RTDFirebase.runFan
 
         if !isFanPressed {
             refFanRun.setValue(1)
@@ -60,7 +60,7 @@ class Fan {
 
     /// Setting level Degree state
     func setFanSlider(on slider: UISlider, with label: UILabel) {
-        let refFanLevel = refFan.child("level")
+        let refFanLevel = K.RTDFirebase.fanLevel
         slider.value = roundf(slider.value)
 
         if slider.value == 1 {
@@ -77,9 +77,7 @@ class Fan {
 
     /// Function To Turn Off Fan Before SignOut  by Setting Zero in Firebase
     func turnFanOffBeforeSignOut() {
-        let refFanRun = refFan.child("run")
-
-        refFanRun.setValue(0) { (error, ref) in
+        K.RTDFirebase.runFan.setValue(0) { (error, ref) in
             if error == nil {
                 try! Auth.auth().signOut()
             }
@@ -88,15 +86,14 @@ class Fan {
 
     /// Function To Turn Off Fan When The App Quits
     func turnFanOffWhenQuit() {
-        let refFanRun = refFan.child("run")
-        refFanRun.setValue(0)
+        K.RTDFirebase.runFan.setValue(0)
     }
 
     //MARK: - Featching Data
 
     /// Fetching Fan Data
      func observeFanStates(on button: UIButton) {
-        let refFanRun = refFan.child("run")
+        let refFanRun = K.RTDFirebase.runFan
 
         refFanRun.observe(.value) { (snapShot) in
             if let value = snapShot.value as? Int {
@@ -120,7 +117,7 @@ class Fan {
 
     /// Fetching Level Degree Data
      func observeFanLevel(on slider:UISlider, with label: UILabel) {
-        let refFanLevel = refFan.child("level")
+        let refFanLevel = K.RTDFirebase.fanLevel
 
         refFanLevel.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
