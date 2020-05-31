@@ -28,6 +28,7 @@ class MusicViewController: UIViewController {
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var playedTimeLabel: UILabel!
     @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var volumeSlider: UISlider!
     
 
     // PUT NAMES AND ARTWORK IMAGE OF SONGS AND STRUCTURE THEM IN PLAYLIST 
@@ -153,6 +154,8 @@ class MusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        audioPlayer.delegate = self
+
         /// Style Views
         audioView.setShadow()
         artWorkImageView.setShadowImage()
@@ -161,7 +164,10 @@ class MusicViewController: UIViewController {
 
         /// Methods To Configure songs in Playlist and Choose it to play
         configureSongs()
-        chooseSongToPlay()
+        viewSongsDidAppear()
+
+        /// Method to Fetch Volume Value
+        music.observeVolumeStateFromFirebase(on: volumeSlider)
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -171,7 +177,7 @@ class MusicViewController: UIViewController {
     //MARK: - Music Methods
 
     //FUNCTION THAT ALLOW TO CHOSSE SONG FROM PLAYLIST TO PLAY AND GETS THE NAME OF THE SONGS
-    func chooseSongToPlay()
+    func viewSongsDidAppear()
     {
         let song = playList[thisSong].name
         let urlString = Bundle.main.path(forResource: song, ofType: "mp3")
@@ -200,7 +206,7 @@ class MusicViewController: UIViewController {
 
     }
 
-    /// Play Specific Song  Function
+    // Play Specific Song  Function
     func playThisSong(thisOne:String)
     {
         do
@@ -208,6 +214,7 @@ class MusicViewController: UIViewController {
             let audioPath = Bundle.main.path(forResource: thisOne, ofType: ".mp3")
             try audioPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
             audioPlayer.play()
+            audioPlayer.delegate = self
         }
         catch
         {
@@ -215,6 +222,26 @@ class MusicViewController: UIViewController {
         }
     }
 
+    /// Play Songs in Queue
+    func playSongsInSequence () {
+        audioPlayer.delegate = self
+
+        let song = playList[thisSong]
+
+        playThisSong(thisOne: song.name)
+
+        music.setPauseButtonOnSelectedCell(isSongPressed, on: playOrPauseButton)
+
+        /// Render Name AND Image Of Song in View
+        songLabel.text = song.name
+        artWorkImageView.image = UIImage(named: song.imageName)
+
+        /// Setting Firebase Realtime Database of selected song
+        music.setMusicInRTDFirebase(with: thisSong + 1)
+
+        /// Timer to count selected song duration till ends
+        songShouldPauseWhenEnds()
+    }
 
     /// Timer to Pause Automatically in Firebase
     @objc func setZeroSongWhenEndsInRTDFirebase() {
@@ -235,8 +262,6 @@ class MusicViewController: UIViewController {
     {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(setZeroSongWhenEndsInRTDFirebase), userInfo: nil, repeats: true)
     }
-
-
 }
 
 //MARK: - TableView Delegation & DataSourece Methods
@@ -252,7 +277,7 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let song = playList[indexPath.row]
 
-        /// Render Name AND Image Of Song in View
+        /// Render Name AND Image Of Song in Cell
         cell.textLabel?.text = song.name
         cell.imageView?.image = UIImage(named: song.imageName)
 
@@ -268,23 +293,29 @@ extension MusicViewController: UITableViewDelegate, UITableViewDataSource {
             audioStuffed = true
             isSongPressed = true
             thisSong = indexPath.row
-            let song = playList[thisSong]
 
-            playThisSong(thisOne: song.name)
-
-            music.setPauseButtonOnSelectedCell(isSongPressed, on: playOrPauseButton)
-
-            /// Render Name AND Image Of Song in View
-            songLabel.text = song.name
-            artWorkImageView.image = UIImage(named: song.imageName)
-
-            /// Setting Firebase Realtime Database of selected song
-            music.setMusicInRTDFirebase(with: thisSong + 1)
-
-            /// Timer to count selected song duration till ends
-            songShouldPauseWhenEnds()
-
+            playSongsInSequence()
         }
     }
+    
+}
 
+//MARK: - AVAudioPlayer Delegate Method
+extension MusicViewController: AVAudioPlayerDelegate {
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+
+        thisSong += 1
+        if thisSong < playList.count {
+
+            playSongsInSequence()
+
+        } else {
+            thisSong = (playList.count - 1)
+            isSongPressed = !isSongPressed
+            audioPlayer.pause()
+            music.setPlayOrPauseButtonImage(isSongPressed, on: playOrPauseButton)
+        }
+
+    }
 }

@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
         //Change the Name of TextField Placeholder
         registerEmailTextField.setPlaceHolder(with: "New E-mail")
         registerPasswordTextField.setPlaceHolder(with: "New Password")
-        raspberry_Pi_Field.setPlaceHolder(with: "RaspberryID")
+        raspberry_Pi_Field.setPlaceHolder(with: "RaspberryPi ID")
 
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
@@ -54,8 +54,7 @@ class RegisterViewController: UIViewController {
                         if let e = error{
                             sender.shake()
                             Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
-                            //                    self.alertLabel.text = e.localizedDescription
-                        }else{
+                        } else {
                             let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                             self.present(mainTabController, animated: false) {
                                 Spinner.sharedInstance.showBlurView(withTitle: "Loading...")

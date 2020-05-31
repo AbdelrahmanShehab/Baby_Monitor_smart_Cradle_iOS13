@@ -606,6 +606,7 @@
                         <outlet property="playOrPauseButton" destination="bKP-nO-LeY" id="y0m-4B-5b0"/>
                         <outlet property="playedTimeLabel" destination="BhK-KW-NlJ" id="FfB-1A-ITG"/>
                         <outlet property="songLabel" destination="F2F-DZ-4Cj" id="Tgh-OS-N30"/>
+                        <outlet property="volumeSlider" destination="M2D-Fi-PTW" id="YRO-8q-bpj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0t9-U5-Yas" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

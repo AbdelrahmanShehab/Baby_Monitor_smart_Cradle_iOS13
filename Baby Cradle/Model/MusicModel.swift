@@ -16,6 +16,8 @@ struct Music {
     private var status = 0
     let refMusic = K.RTDFirebase.Music
 
+    //MARK: - Setting AND Fetching Data to/from Firebase
+
     // Setting Song Value in Real Time Database in Firebase
     func setMusicInRTDFirebase(with songValue: Int)
     {
@@ -28,7 +30,37 @@ struct Music {
         K.RTDFirebase.volume.setValue(songVolume)
     }
 
-    /// Function to Mute Or Unmute Song
+    // Fetching Volume Value From Real Time Database in Firebase
+    func observeVolumeStateFromFirebase(on slider: UISlider) {
+        let refVolume = K.RTDFirebase.volume
+
+        refVolume.observe(.value) { (snapshot) in
+            if let volume = snapshot.value as? Float {
+                slider.value = volume
+
+            }
+        }
+    }
+
+    /// Function To Turn Off Music Before SignOut by Setting Zero in Firebase
+    func turnMusicOffBeforeSignOut(player: AVAudioPlayer) {
+        let audioStuff = true
+        if audioStuff && player.isPlaying {
+            player.pause()
+        }
+        K.RTDFirebase.song.setValue(0) { (error, ref) in
+            if error == nil {
+                try! Auth.auth().signOut()
+            }
+        }
+    }
+
+    /// Function To Turn Music Off When The App Quits
+    func turnMusicOffWhenQuit() {
+        K.RTDFirebase.song.setValue(0)
+    }
+
+    // Function to Mute Or Unmute Song
     func setMuteOrUnMute(player: AVAudioPlayer,on button: UIButton)
     {
         if player.volume > 0 {
@@ -41,6 +73,8 @@ struct Music {
         }
     }
 
+    //MARK: - Function to Control The Music
+    
     /// Function to Repeat Song once Or Infinitely
     mutating func setRepeat(player: AVAudioPlayer, on button: UIButton) {
 
@@ -66,10 +100,10 @@ struct Music {
         }
     }
 
-    // Function To Show Play/Pause States
+    // Functions To Show Play/Pause States
 
     /// Function to Change Play/Pause Button Image States
-    func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
+    private func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
         let imageName = shouldShowPlayOrPauseButton ? "play" : "pause"
 
         button.setImage(UIImage(named: imageName), for: .normal)
@@ -93,21 +127,4 @@ struct Music {
         }
     }
 
-    /// Function To Turn Off Music Before SignOut by Setting Zero in Firebase
-    func turnMusicOffBeforeSignOut(player: AVAudioPlayer) {
-        let audioStuff = true
-        if audioStuff && player.isPlaying {
-            player.pause()
-        }
-        K.RTDFirebase.song.setValue(0) { (error, ref) in
-            if error == nil {
-                try! Auth.auth().signOut()
-            }
-        }
-    }
-
-    /// Function To Turn Music Off When The App Quits
-    func turnMusicOffWhenQuit() {
-        K.RTDFirebase.song.setValue(0)
-    }
 }
