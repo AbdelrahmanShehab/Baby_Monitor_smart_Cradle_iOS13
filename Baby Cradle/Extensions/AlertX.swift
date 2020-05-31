@@ -24,4 +24,11 @@ struct Alert {
         DispatchQueue.main.async { vc.present(alert, animated: true) }
     }
 
+    static func showWorningMsgOfRaspberryID(on vc: UIViewController)
+    {
+        let alert = UIAlertController(title: "WRONG ID", message: "The ID of Raspberry Device You Entered is Invalied", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
+        DispatchQueue.main.async { vc.present(alert, animated: true) }
+    }
+
 }

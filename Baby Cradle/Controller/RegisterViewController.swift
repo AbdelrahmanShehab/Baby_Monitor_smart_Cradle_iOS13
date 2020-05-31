@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerEmailTextField: UITextField!
     @IBOutlet weak var registerPasswordTextField: UITextField!
     @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var raspberry_Pi_Field: UITextField!
     
     //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
@@ -30,6 +31,7 @@ class RegisterViewController: UIViewController {
         //Change the Name of TextField Placeholder
         registerEmailTextField.setPlaceHolder(with: "New E-mail")
         registerPasswordTextField.setPlaceHolder(with: "New Password")
+        raspberry_Pi_Field.setPlaceHolder(with: "RaspberryID")
 
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
@@ -44,20 +46,28 @@ class RegisterViewController: UIViewController {
     //MARK: - Sign up to the Application
     @IBAction func registerPressedButton(_ sender: UIButton) {
 
-        if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    sender.shake()
-                    Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
-//                    self.alertLabel.text = e.localizedDescription
-                }else{
-                    let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
-                    self.present(mainTabController, animated: false) {
-                        Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
+        if let id = raspberry_Pi_Field.text {
+            if id == "baby" {
+                if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
+                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                        if let e = error{
+                            sender.shake()
+                            Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
+                            //                    self.alertLabel.text = e.localizedDescription
+                        }else{
+                            let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
+                            self.present(mainTabController, animated: false) {
+                                Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
+                            }
+                        }
                     }
                 }
+            } else {
+                Alert.showWorningMsgOfRaspberryID(on: self)
+                sender.shake()
             }
         }
+
 
     }
 }
@@ -68,6 +78,7 @@ extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         registerEmailTextField.endEditing(true)
         registerPasswordTextField.endEditing(true)
+        raspberry_Pi_Field.endEditing(true)
         return true
     }
 }
