@@ -27,6 +27,7 @@ class RegisterViewController: UIViewController {
         // Delegation of Text Fields
         registerEmailTextField.delegate = self
         registerPasswordTextField.delegate = self
+        raspberry_Pi_Field.delegate = self
 
         //Change the Name of TextField Placeholder
         registerEmailTextField.setPlaceHolder(with: "New E-mail")
