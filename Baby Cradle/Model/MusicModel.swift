@@ -12,72 +12,56 @@ import UIKit
 import Firebase
 
 struct Music {
-
+    
     private var status = 0
     let refMusic = K.RTDFirebase.Music
-
+    
     //MARK: - Setting AND Fetching Data to/from Firebase
-
+    
     // Setting Song Value in Real Time Database in Firebase
     func setMusicInRTDFirebase(with songValue: Int)
     {
         K.RTDFirebase.song.setValue(songValue)
     }
-
+    
     // Setting Song Volume in Real Time Database in Firebase
     func setVolumeRTDFirebase(with songVolume: Float)
     {
         K.RTDFirebase.volume.setValue(songVolume)
     }
-
+    
     // Fetching Volume Value From Real Time Database in Firebase
     func observeVolumeStateFromFirebase(on slider: UISlider) {
         let refVolume = K.RTDFirebase.volume
-
+        
         refVolume.observe(.value) { (snapshot) in
             if let volume = snapshot.value as? Float {
                 slider.value = volume
-
+                
             }
         }
     }
-
+    //MARK: - Detach Or Sign Out The App Function
+    
     /// Function To Turn Off Music Before SignOut by Setting Zero in Firebase
-    func turnMusicOffBeforeSignOut(player: AVAudioPlayer) {
-        let audioStuff = true
-        if audioStuff && player.isPlaying {
-            player.pause()
-        }
+    func turnMusicOffBeforeSignOut() {
         K.RTDFirebase.song.setValue(0) { (error, ref) in
             if error == nil {
                 try! Auth.auth().signOut()
             }
         }
     }
-
+    
     /// Function To Turn Music Off When The App Quits
     func turnMusicOffWhenQuit() {
         K.RTDFirebase.song.setValue(0)
     }
-
-    // Function to Mute Or Unmute Song
-    func setMuteOrUnMute(player: AVAudioPlayer,on button: UIButton)
-    {
-        if player.volume > 0 {
-            player.volume = 0
-            button.setImage(UIImage(systemName: "speaker.slash.fill"), for: .normal)
-        } else {
-            player.volume = 0.5
-            button.setImage(UIImage(systemName: "speaker.2.fill"), for: .normal)
-
-        }
-    }
-
+    
     //MARK: - Function to Control The Music
     
     /// Function to Repeat Song once Or Infinitely
     mutating func setRepeat(player: AVAudioPlayer, on button: UIButton) {
-
+        
         if (player.isPlaying == true || player.isPlaying == false) && status == 0
         {
             player.numberOfLoops = -1
@@ -99,16 +83,29 @@ struct Music {
             status = 0
         }
     }
-
+    
+    // Function to Mute Or Unmute Song
+    func setMuteOrUnMute(player: AVAudioPlayer,on button: UIButton)
+    {
+        if player.volume > 0 {
+            player.volume = 0
+            button.setImage(UIImage(systemName: "speaker.slash.fill"), for: .normal)
+        } else {
+            player.volume = 0.5
+            button.setImage(UIImage(systemName: "speaker.2.fill"), for: .normal)
+            
+        }
+    }
+    
     // Functions To Show Play/Pause States
-
+    
     /// Function to Change Play/Pause Button Image States
     private func showPlayOrPauseButton(_ shouldShowPlayOrPauseButton: Bool, on button: UIButton) {
         let imageName = shouldShowPlayOrPauseButton ? "play" : "pause"
-
+        
         button.setImage(UIImage(named: imageName), for: .normal)
     }
-
+    
     /// Show Play Or Pause button Image Function
     func setPlayOrPauseButtonImage(_ isPressed: Bool, on button: UIButton) {
         if isPressed == true {
@@ -117,7 +114,7 @@ struct Music {
             showPlayOrPauseButton(!isPressed, on: button)
         }
     }
-
+    
     /// Show  Pause button Of Selected Cell
     func setPauseButtonOnSelectedCell(_ isPressed: Bool, on button: UIButton) {
         if isPressed == true {
@@ -126,5 +123,5 @@ struct Music {
             showPlayOrPauseButton(isPressed, on: button)
         }
     }
-
+    
 }

@@ -34,11 +34,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         appNameLabel.text = K.appName
-        self.hideKeyboardWhenTappedAround()
 
-        // Delegatation Text Fields
+        // Delegation Text Fields
         loginEmailTextField.delegate = self
         loginPasswordTextField.delegate = self
+        self.hideKeyboardWhenTappedAround()
 
         //Change the Name of TextField Placeholder
         loginEmailTextField.setPlaceHolder(with: "E-mail")
@@ -61,8 +61,7 @@ class LoginViewController: UIViewController {
                 if let e = error{
                     Alert.showInvalidEmailAlert(on: self, message: e.localizedDescription)
                     sender.shake()
-//                    self.alertLabel.text = e.localizedDescription
-                }else {
+                } else {
                     let mainTabController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarViewController") as! MainTabBarViewController
                     self.present(mainTabController, animated: false) {
                         Spinner.sharedInstance.showBlurView(withTitle: "Loading...")
@@ -76,14 +75,9 @@ class LoginViewController: UIViewController {
 
     }
 
-//    func finishLoggedIn() {
-//        UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-//        UserDefaults.standard.synchronize()
-//    }
-
 }
 
-//MARK: - UITextField Delgate Method
+//MARK: - UITextField Delegate Method
 extension LoginViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

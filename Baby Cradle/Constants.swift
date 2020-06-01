@@ -12,7 +12,7 @@ import UIKit
 
 struct K {
     static let appName = "👶🏼 Smart Baby Cradle"
-
+    
     struct RTDFirebase {
         static let Motor = Database.database().reference(withPath: "Motor")
         static let runMotor = Motor.child("run")

@@ -8,17 +8,19 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 import MBCircularProgressBar
 
 class BabyCradleViewController: UIViewController {
-
+    
+    let notification = NotificationCenter.default
     var motor = Motor()
     var fan = Fan()
     var soundDetection = SoundDetection()
     var status = Status()
     var music = Music()
     var musicVC = MusicViewController()
-
+    
     //MARK: - IBOUTLETS
     /// Motor
     @IBOutlet weak var motorButton: UIButton!
@@ -28,19 +30,19 @@ class BabyCradleViewController: UIViewController {
     @IBOutlet weak var fanButton: UIButton!
     @IBOutlet weak var fanSlider: UISlider!
     @IBOutlet weak var fanLevelLabel: UILabel!
-    /// Temerature & Humidity
+    /// Temperature & Humidity
     @IBOutlet weak var temperatureProgressView: MBCircularProgressBarView!
     @IBOutlet weak var humidityProgressView: MBCircularProgressBarView!
     /// Sound Detection
     @IBOutlet weak var soundDetectionImage: UIImageView!
     /// Grid Views of IBOutlets
     @IBOutlet var views : [UIView]!
-
+    
     
     //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         /// Style Views
         for view in views {
             view.setShadow()
@@ -52,55 +54,51 @@ class BabyCradleViewController: UIViewController {
         // Fetching Data From Firebase Realtime Database 
         fetchDataFromFirebase()
     }
-
+    
     //MARK: - MOTOR ACTION
     @IBAction func motorPowerButton(_ sender: UIButton) {
         
         motor.setMotorStates(on: motorButton)
     }
-
+    
     @IBAction func motorLevelSlider(_ sender: UISlider) {
-
+        
         motor.setMotorSlider(on: motorSlider, with: motorLevelLabel)
     }
-
+    
     //MARK: - FAN ACTION
     @IBAction func fanPressedButton(_ sender: UIButton) {
-
+        
         fan.setFanStates(on: fanButton)
     }
-
+    
     @IBAction func fanLevelSlider(_ sender: UISlider) {
-
+        
         fan.setFanSlider(on: fanSlider, with: fanLevelLabel)
     }
-
+    
     //MARK: - Sign Out
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
-
+        
         /// Turn Off Actions and Set Them with Zero in Firebase
-        let audio = musicVC.audioPlayer
+        notification.post(name: Notification.Name("StopMusic"), object: nil)
         motor.turnMotorOffBeforeSignOut()
         fan.turnFanOffBeforeSignOut()
-        music.turnMusicOffBeforeSignOut(player: audio)
+        music.turnMusicOffBeforeSignOut()
+        
         do {
             try Auth.auth().signOut()
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-
+        
     }
-
-//    func finishLoggedOut() {
-//        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-//        UserDefaults.standard.synchronize()
-//    }
-
+    
     //MARK: - Fetching Data From Firebase
     func fetchDataFromFirebase() {
-
-        /// Featching Data in StartUp
+        
+        /// Fetching Data in StartUp
         DispatchQueue.main.async {
             self.motor.observeMotorStates(on: self.motorButton)
             self.motor.observeMotorLevel(on: self.motorSlider, with: self.motorLevelLabel)
@@ -109,13 +107,13 @@ class BabyCradleViewController: UIViewController {
             self.soundDetection.fetchDetectedSound(on: self.soundDetectionImage)
             self.status.fetchTemperatureStatus(on: self.temperatureProgressView)
             self.status.fetchHumidityStatus(on: self.humidityProgressView)
-
+            
             //Hide Spinner
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(1500)) {
                 Spinner.sharedInstance.hide()
             }
         }
     }
-
+    
 }
 

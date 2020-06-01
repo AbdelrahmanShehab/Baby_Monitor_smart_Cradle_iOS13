@@ -11,10 +11,10 @@ import UIKit
 import Firebase
 
 class Fan {
-
+    
     private var status : Bool?
     let refFan = K.RTDFirebase.Fan
-
+    
     private var isFanPressed: Bool {
         get {
             let refFanRun = Database.database().reference()
@@ -29,18 +29,18 @@ class Fan {
             }
             return status ?? false
         }
-
+        
         set {
             status = newValue
         }
     }
-
+    
     //MARK: - Setting Data
-
+    
     /// Setting Fan State
     func setFanStates(on button: UIButton) {
         let refFanRun = K.RTDFirebase.runFan
-
+        
         if !isFanPressed {
             refFanRun.setValue(1)
             DispatchQueue.main.async {
@@ -57,12 +57,12 @@ class Fan {
             self.isFanPressed = false
         }
     }
-
+    
     /// Setting level Degree state
     func setFanSlider(on slider: UISlider, with label: UILabel) {
         let refFanLevel = K.RTDFirebase.fanLevel
         slider.value = roundf(slider.value)
-
+        
         if slider.value == 1 {
             label.text = "Low"
             refFanLevel.setValue(1)
@@ -74,7 +74,7 @@ class Fan {
             refFanLevel.setValue(3)
         }
     }
-
+    
     /// Function To Turn Off Fan Before SignOut  by Setting Zero in Firebase
     func turnFanOffBeforeSignOut() {
         K.RTDFirebase.runFan.setValue(0) { (error, ref) in
@@ -83,21 +83,21 @@ class Fan {
             }
         }
     }
-
+    
     /// Function To Turn Off Fan When The App Quits
     func turnFanOffWhenQuit() {
         K.RTDFirebase.runFan.setValue(0)
     }
-
-    //MARK: - Featching Data
-
+    
+    //MARK: - Fetching Data
+    
     /// Fetching Fan Data
-     func observeFanStates(on button: UIButton) {
+    func observeFanStates(on button: UIButton) {
         let refFanRun = K.RTDFirebase.runFan
-
+        
         refFanRun.observe(.value) { (snapShot) in
             if let value = snapShot.value as? Int {
-
+                
                 if value == 1 {
                     DispatchQueue.main.async {
                         button.pulsate()
@@ -112,13 +112,13 @@ class Fan {
                 }
             }
         }
-
+        
     }
-
+    
     /// Fetching Level Degree Data
-     func observeFanLevel(on slider:UISlider, with label: UILabel) {
+    func observeFanLevel(on slider:UISlider, with label: UILabel) {
         let refFanLevel = K.RTDFirebase.fanLevel
-
+        
         refFanLevel.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
                 slider.value = level
@@ -129,7 +129,7 @@ class Fan {
                 } else {
                     label.text = "High"
                 }
-
+                
             }
         }
     }

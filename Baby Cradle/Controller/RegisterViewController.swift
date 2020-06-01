@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerEmailTextField: UITextField!
@@ -21,32 +21,32 @@ class RegisterViewController: UIViewController {
     //MARK: - ViewDidLoad Method
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.hideKeyboardWhenTappedAround()
-
+        
         // Delegation of Text Fields
         registerEmailTextField.delegate = self
         registerPasswordTextField.delegate = self
         raspberry_Pi_Field.delegate = self
-
+        
         //Change the Name of TextField Placeholder
         registerEmailTextField.setPlaceHolder(with: "New E-mail")
         registerPasswordTextField.setPlaceHolder(with: "New Password")
         raspberry_Pi_Field.setPlaceHolder(with: "RaspberryPi ID")
-
+        
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
-        registerView.setTreboGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
+        registerView.setTrioGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
         registerButton.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.blueGreen)
-
+        
         /// Corner Radius for IBOutlets
         registerView.layer.cornerRadius = 10
         registerButton.layer.cornerRadius = 5
     }
-
+    
     //MARK: - Sign up to the Application
     @IBAction func registerPressedButton(_ sender: UIButton) {
-
+        
         if let id = raspberry_Pi_Field.text {
             if id == "baby" {
                 if let email = registerEmailTextField.text, let password = registerPasswordTextField.text {
@@ -63,18 +63,18 @@ class RegisterViewController: UIViewController {
                     }
                 }
             } else {
-                Alert.showWorningMsgOfRaspberryID(on: self)
+                Alert.showWarningMsgOfRaspberryID(on: self)
                 sender.shake()
             }
         }
-
-
+        
+        
     }
 }
 
 //MARK: - UITextField Delgate Method
 extension RegisterViewController: UITextFieldDelegate {
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         registerEmailTextField.endEditing(true)
         registerPasswordTextField.endEditing(true)

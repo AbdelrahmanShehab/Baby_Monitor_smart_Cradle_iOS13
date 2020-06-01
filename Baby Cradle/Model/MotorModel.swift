@@ -11,10 +11,10 @@ import UIKit
 import Firebase
 
 class Motor {
-
+    
     private var status : Bool?
     let refMotor = K.RTDFirebase.Motor
-
+    
     private var isMotorPressed: Bool {
         get {
             let refMotorRun = Database.database().reference()
@@ -29,18 +29,18 @@ class Motor {
             }
             return status ?? false
         }
-
+        
         set {
             status = newValue
         }
     }
-
+    
     //MARK: - Setting Data
-
+    
     /// Setting Motor State
     func setMotorStates(on button: UIButton) {
         let refMotorRun = K.RTDFirebase.runMotor
-
+        
         if !isMotorPressed {
             refMotorRun.setValue(1)
             DispatchQueue.main.async {
@@ -56,12 +56,12 @@ class Motor {
             }
         }
     }
-
+    
     /// Setting level Degree State
     func setMotorSlider(on slider: UISlider, with label: UILabel) {
         let refMotorLevel = K.RTDFirebase.motorLevel
         slider.value = roundf(slider.value)
-
+        
         if slider.value == 1 {
             label.text = "Low"
             refMotorLevel.setValue(1)
@@ -73,7 +73,7 @@ class Motor {
             refMotorLevel.setValue(3)
         }
     }
-
+    
     /// Function To Turn Off Motor Before SignOut by Setting Zero in Firebase
     func turnMotorOffBeforeSignOut() {
         K.RTDFirebase.runMotor.setValue(0) { (error, ref) in
@@ -82,18 +82,18 @@ class Motor {
             }
         }
     }
-
+    
     /// Function To Turn Off Motor When The App Quits
     func turnMotorOffWhenQuit() {
         K.RTDFirebase.runMotor.setValue(0)
     }
-
+    
     //MARK: - Fetching Data
-
-    /// Featching Motor Data
+    
+    /// Fetching Motor Data
     func observeMotorStates(on button: UIButton) {
         let refMotorRun = K.RTDFirebase.runMotor
-
+        
         refMotorRun.observe(.value) { (snapShot) in
             if let value = snapShot.value as? Int {
                 
@@ -111,13 +111,13 @@ class Motor {
                 }
             }
         }
-
+        
     }
-
+    
     /// Fetching Level Degree Data
     func observeMotorLevel(on slider:UISlider, with label: UILabel) {
         let refMotorLevel = K.RTDFirebase.motorLevel
-
+        
         refMotorLevel.observe(.value) { (snapShot) in
             if let level = snapShot.value as? Float {
                 slider.value = level

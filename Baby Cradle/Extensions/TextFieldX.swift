@@ -14,9 +14,9 @@ extension UITextField {
     func setPlaceHolder(with placeHolder: String) {
         
         self.attributedPlaceholder = NSAttributedString(string: placeHolder,
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
 
-
+        
     }
 
 }

@@ -54,7 +54,7 @@ class Spinner {
         
         activityIndicatorView.startAnimating()
         container.addSubview(activityIndicatorView)
-       if let window = getKeyWindow() {
+        if let window = getKeyWindow() {
             window.addSubview(container)
         }
         container.alpha = 0.0
@@ -76,7 +76,7 @@ class Spinner {
         activityIndicatorView.style = UIActivityIndicatorView.Style.large
         activityIndicatorView.center = CGPoint(x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2)
         activityIndicatorView.color = UIColor.white
-
+        
         activityIndicatorView.startAnimating()
         container.addSubview(activityIndicatorView)
         if let window = getKeyWindow() {
@@ -100,7 +100,7 @@ class Spinner {
             self.subContainer.removeFromSuperview()
             self.blurEffectView.removeFromSuperview()
             self.container.removeFromSuperview()
-//            print("hide spinner")
+            //            print("hide spinner")
         }
     }
     
