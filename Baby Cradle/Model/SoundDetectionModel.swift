@@ -15,6 +15,7 @@ class SoundDetection {
     
     let refSoundDetection = K.RTDFirebase.SoundDetection
     var player:AVAudioPlayer = AVAudioPlayer()
+    var motor = Motor()
     
     /// Fetching Sound Detection DATA
     func fetchDetectedSound(on imageSound: UIImageView) {
@@ -27,6 +28,7 @@ class SoundDetection {
                     DispatchQueue.main.async {
                         imageSound.image = UIImage(named: "sound-on")
                         self.playSound(named: "Baby Crying")
+                        self.motor.willMotorTurnOn()
                         imageSound.flash()
                     }
                 } else {

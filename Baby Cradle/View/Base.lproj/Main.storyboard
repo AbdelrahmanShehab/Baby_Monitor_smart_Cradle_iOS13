@@ -210,6 +210,7 @@
         <!-- 👶🏼 Smart Baby Cradle-->
         <scene sceneID="5xs-8Z-mHd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKm-d3-RIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="BabyCradleViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PsJ-3m-DHH" customClass="BabyCradleViewController" customModule="Baby_Cradle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZKJ-yj-T0b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -400,7 +401,7 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
-                                                <real key="value" value="50"/>
+                                                <real key="value" value="55"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="valueFontSize">
                                                 <real key="value" value="30"/>
@@ -464,7 +465,6 @@
                         <outletCollection property="views" destination="OIC-Gc-X90" collectionClass="NSMutableArray" id="8vA-9u-9A7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PKm-d3-RIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16985" y="1450"/>
         </scene>

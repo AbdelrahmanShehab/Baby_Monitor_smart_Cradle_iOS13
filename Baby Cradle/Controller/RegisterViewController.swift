@@ -72,7 +72,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
-//MARK: - UITextField Delgate Method
+//MARK: - UITextField Delegate Method
 extension RegisterViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

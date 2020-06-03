@@ -73,6 +73,14 @@ class Motor {
             refMotorLevel.setValue(3)
         }
     }
+
+    /// Monitor Function to Turn Fan On when Temperature is High  and Turn it Off Automatically
+        func willMotorTurnOn() {
+            K.RTDFirebase.runMotor.setValue(1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
+                K.RTDFirebase.runMotor.setValue(0)
+            }
+        }
     
     /// Function To Turn Off Motor Before SignOut by Setting Zero in Firebase
     func turnMotorOffBeforeSignOut() {
