@@ -138,9 +138,7 @@
 		632D3E5D245461590061A531 /* Baby Cradle */ = {
 			isa = PBXGroup;
 			children = (
-				632D3E5E245461590061A531 /* AppDelegate.swift */,
-				632D3E60245461590061A531 /* SceneDelegate.swift */,
-				63C7863D2457006E005571F8 /* Constants.swift */,
+				63E940D0248B9AD9002FEFA6 /* App Delegation */,
 				63FB8CC62455CD6100AEAD39 /* Model */,
 				63FB8CC72455CD6B00AEAD39 /* View */,
 				63FB8CC82455CD7400AEAD39 /* Controller */,
@@ -153,6 +151,15 @@
 			path = "Baby Cradle";
 			sourceTree = "<group>";
 		};
+		63E940D0248B9AD9002FEFA6 /* App Delegation */ = {
+			isa = PBXGroup;
+			children = (
+				632D3E5E245461590061A531 /* AppDelegate.swift */,
+				632D3E60245461590061A531 /* SceneDelegate.swift */,
+			);
+			path = "App Delegation";
+			sourceTree = "<group>";
+		};
 		63FB8CC62455CD6100AEAD39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +169,7 @@
 				632396A62466DF8500EB5A2C /* StatusModel.swift */,
 				634F9D6E246F099F0079AB99 /* MusicModel.swift */,
 				63C5CC912477226400438E21 /* Song.swift */,
+				63C7863D2457006E005571F8 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
