@@ -16,7 +16,7 @@ class SoundDetection {
     let refSoundDetection = K.RTDFirebase.SoundDetection
     var player:AVAudioPlayer = AVAudioPlayer()
     var motor = Motor()
-    
+
     /// Fetching Sound Detection DATA
     func fetchDetectedSound(on imageSound: UIImageView) {
         let refDetectedSound = K.RTDFirebase.detected
@@ -43,8 +43,7 @@ class SoundDetection {
     
     /// Function to Play Sound Alert When Baby is Crying
     @discardableResult func playSound(named soundName: String) -> AVAudioPlayer {
-        
-        
+
         let audioPath = Bundle.main.path(forResource: soundName, ofType: "wav")
         player = try! AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
         player.play()

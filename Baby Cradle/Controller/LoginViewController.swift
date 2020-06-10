@@ -17,8 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginEmailTextField: UITextField!
     @IBOutlet weak var loginPasswordTextField: UITextField!
-    @IBOutlet weak var alertLabel: UILabel!
-
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,7 +44,7 @@ class LoginViewController: UIViewController {
 
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.blue, colorTwo: K.BrandColors.red)
-        loginButton.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), colorTwo: K.BrandColors.marron)
+//        loginButton.setGradientBackground(colorOne: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), colorTwo: K.BrandColors.marron)
 
         // Corner Radius for IBOutlets
         loginBlurview.layer.cornerRadius = 10
