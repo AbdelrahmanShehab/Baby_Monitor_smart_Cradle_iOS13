@@ -27,33 +27,45 @@ struct Status {
                 switch progressValue {
                     case 0..<15:
                         progressView.progressColor = #colorLiteral(red: 0, green: 1, blue: 0.7490196078, alpha: 1)
+                        self.fan.willFanTurnOff()
                     case 15..<25:
                         progressView.progressColor = #colorLiteral(red: 0.2053576708, green: 0.9994787574, blue: 0.6023795009, alpha: 1)
-                    case 25..<35:
+                        self.fan.willFanTurnOff()
+                    case 25..<30:
                         progressView.progressColor = #colorLiteral(red: 0, green: 1, blue: 0.2531713843, alpha: 1)
-                    case 35..<47:
+                        self.turnFanOnInLowLevel()
+                    case 30..<35:
                         progressView.progressColor = #colorLiteral(red: 1, green: 0.5019607843, blue: 0, alpha: 1)
-                    case 47..<50:
+                        self.turnFanOnInMediumLevel()
+                    case 35..<45:
                         progressView.progressColor = #colorLiteral(red: 1, green: 0.2682470035, blue: 0.1987371575, alpha: 1)
+                        self.turnFanOnInHighLevel()
                     case 50..<53:
                         progressView.progressColor = #colorLiteral(red: 0.8763912671, green: 0.2125237124, blue: 0.2470569349, alpha: 1)
+                        self.turnFanOnInHighLevel()
                     case 53...55:
                         progressView.progressColor = #colorLiteral(red: 0.8305062072, green: 0, blue: 0, alpha: 1)
+                        self.turnFanOnInHighLevel()
                     default:
                         progressView.progressColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-                }
-                if progressValue >= 35 {
-                    self.fan.willFanTurnOn()
-                } else if progressValue < 35{
-                    self.fan.willFanTurnOff()
                 }
             }
             
         }
     }
 
-    func monitorHighTemperature() {
-        // TODO Monitor
+    /// Automation Temperature Functions
+    private func turnFanOnInLowLevel() {
+        fan.willFanTurnOn()
+        K.RTDFirebase.fanLevel.setValue(1)
+    }
+    private func turnFanOnInMediumLevel() {
+        fan.willFanTurnOn()
+        K.RTDFirebase.fanLevel.setValue(2)
+    }
+    private func turnFanOnInHighLevel() {
+        fan.willFanTurnOn()
+        K.RTDFirebase.fanLevel.setValue(3)
     }
     
     /// Fetching Humidity Status

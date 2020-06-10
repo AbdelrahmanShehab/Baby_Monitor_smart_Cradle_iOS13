@@ -76,20 +76,26 @@ class Fan {
     }
 
     /// Monitor Function to Turn Fan On when Temperature is High  and Turn it Off Automatically
-        func willFanTurnOn() {
-            K.RTDFirebase.runFan.setValue(1)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
-                self.willFanTurnOff()
-            }
+    func willFanTurnOn() {
+        K.RTDFirebase.runFan.setValue(1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
+            self.willFanTurnOff()
+            K.RTDFirebase.fanLevel.setValue(1)
         }
+    }
 
     func willFanTurnOff() {
         K.RTDFirebase.runFan.setValue(0)
     }
-
+    
     /// Function To Turn Off Fan Before SignOut  by Setting Zero in Firebase
     func turnFanOffBeforeSignOut() {
         K.RTDFirebase.runFan.setValue(0) { (error, ref) in
+            if error == nil {
+                try! Auth.auth().signOut()
+            }
+        }
+        K.RTDFirebase.fanLevel.setValue(1) { (error, ref) in
             if error == nil {
                 try! Auth.auth().signOut()
             }
