@@ -176,20 +176,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cradle-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="zg9-ds-GLN">
-                                <rect key="frame" x="112" y="62" width="150" height="170"/>
+                                <rect key="frame" x="112" y="62" width="150" height="160.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="zg9-ds-GLN" secondAttribute="height" multiplier="15:17" id="FzJ-AM-2rA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160.5" id="t0L-Ej-hTl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="twL-7I-F6v"/>
                                 </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUh-Sl-sdG" userLabel="Register View">
-                                <rect key="frame" x="16" y="248.5" width="343" height="300"/>
+                                <rect key="frame" x="16" y="239" width="343" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-Zo-WDG">
                                         <rect key="frame" x="31" y="104" width="280" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="OwZ-tz-dEH"/>
-                                            <constraint firstAttribute="width" constant="280" id="yz5-I4-3Ip"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Wa6-3D-dY7"/>
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -226,7 +227,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="XZI-oy-Z5f"/>
-                                            <constraint firstAttribute="width" constant="280" id="xby-m1-fBi"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="drh-ia-X5X"/>
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -241,13 +242,13 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iof-fh-aPk" secondAttribute="trailing" constant="92" id="Kdx-fV-qWh"/>
                                     <constraint firstItem="FSd-iU-7BI" firstAttribute="top" secondItem="UFo-Zo-WDG" secondAttribute="bottom" constant="30" id="Kqf-EN-2T5"/>
                                     <constraint firstItem="UFo-Zo-WDG" firstAttribute="leading" secondItem="uUh-Sl-sdG" secondAttribute="leading" constant="31" id="NIY-RD-e0V"/>
-                                    <constraint firstAttribute="trailing" secondItem="UFo-Zo-WDG" secondAttribute="trailing" constant="32" id="PIH-qw-9KT"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UFo-Zo-WDG" secondAttribute="trailing" constant="20" symbolic="YES" id="PIH-qw-9KT"/>
                                     <constraint firstAttribute="bottom" secondItem="iof-fh-aPk" secondAttribute="bottom" constant="15" id="VdS-8h-hJD"/>
                                     <constraint firstAttribute="height" constant="300" id="VeX-R3-pna"/>
                                     <constraint firstItem="6Zg-hl-12x" firstAttribute="top" secondItem="uUh-Sl-sdG" secondAttribute="top" constant="30" id="Xfj-ij-Ip5"/>
                                     <constraint firstItem="FSd-iU-7BI" firstAttribute="top" secondItem="UFo-Zo-WDG" secondAttribute="bottom" constant="30" id="ZfU-8F-HD8"/>
                                     <constraint firstItem="UFo-Zo-WDG" firstAttribute="top" secondItem="6Zg-hl-12x" secondAttribute="bottom" constant="40" id="a5E-yh-5rd"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Zg-hl-12x" secondAttribute="trailing" constant="32" id="aLs-K3-l26"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Zg-hl-12x" secondAttribute="trailing" constant="20" symbolic="YES" id="aLs-K3-l26"/>
                                     <constraint firstItem="FSd-iU-7BI" firstAttribute="leading" secondItem="uUh-Sl-sdG" secondAttribute="leading" constant="111" id="bJ3-SQ-J9i"/>
                                     <constraint firstAttribute="width" constant="343" id="fIj-Ua-Gp8"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="uUh-Sl-sdG" secondAttribute="height" multiplier="343:300" id="ft7-5g-NWX"/>
@@ -257,7 +258,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="RnD-6e-iqZ">
-                                <rect key="frame" x="45" y="566.5" width="285" height="100"/>
+                                <rect key="frame" x="45" y="557" width="285" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Ad-tdX">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -297,7 +298,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="RnD-6e-iqZ" secondAttribute="height" multiplier="57:20" id="hnk-hM-Of0"/>
+                                    <constraint firstAttribute="width" constant="285" id="e7g-Fu-9HO"/>
+                                    <constraint firstAttribute="height" constant="100" id="gvm-a7-ixR"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -310,7 +312,7 @@
                             <constraint firstItem="m1P-w6-Lco" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uUh-Sl-sdG" secondAttribute="trailing" constant="16" id="ONn-qY-w4O"/>
                             <constraint firstItem="RnD-6e-iqZ" firstAttribute="top" secondItem="uUh-Sl-sdG" secondAttribute="bottom" constant="18" id="OZv-v8-C4e"/>
                             <constraint firstItem="RnD-6e-iqZ" firstAttribute="top" secondItem="uUh-Sl-sdG" secondAttribute="bottom" constant="18" id="P7u-Ns-U9g"/>
-                            <constraint firstItem="RnD-6e-iqZ" firstAttribute="bottom" secondItem="m1P-w6-Lco" secondAttribute="bottom" id="bU4-Sa-idx"/>
+                            <constraint firstItem="m1P-w6-Lco" firstAttribute="bottom" secondItem="RnD-6e-iqZ" secondAttribute="bottom" constant="10" id="bU4-Sa-idx"/>
                             <constraint firstItem="m1P-w6-Lco" firstAttribute="trailing" secondItem="zg9-ds-GLN" secondAttribute="trailing" constant="113" id="cxJ-if-9GY"/>
                             <constraint firstItem="m1P-w6-Lco" firstAttribute="trailing" secondItem="RnD-6e-iqZ" secondAttribute="trailing" constant="45" id="o6b-sV-v6J"/>
                             <constraint firstItem="RnD-6e-iqZ" firstAttribute="leading" secondItem="m1P-w6-Lco" secondAttribute="leading" constant="45" id="oYX-je-e7g"/>
@@ -806,7 +808,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="170" height="170"/>
+        <image name="arrow" width="170.5" height="170.5"/>
         <image name="baby-music" width="166.5" height="166.5"/>
         <image name="child" width="170.5" height="170.5"/>
         <image name="cradle-wifi" width="170.5" height="170.5"/>
