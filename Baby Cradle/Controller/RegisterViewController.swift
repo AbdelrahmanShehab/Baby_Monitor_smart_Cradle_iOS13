@@ -15,7 +15,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerEmailTextField: UITextField!
     @IBOutlet weak var registerPasswordTextField: UITextField!
-    @IBOutlet weak var alertLabel: UILabel!
     @IBOutlet weak var raspberry_Pi_Field: UITextField!
     
     //MARK: - ViewDidLoad Method
