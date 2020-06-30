@@ -1,5 +1,5 @@
 //
-//  GradiantColor.swift
+//  GradientColor.swift
 //  Baby Cradle
 //
 //  Created by Abdelrahman Shehab on 4/27/20.
@@ -22,7 +22,7 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func setTrioGradientBackground(colorOne: UIColor, colorTwo: UIColor,colorThree: UIColor) {
+    func setTripleGradientBackground(colorOne: UIColor, colorTwo: UIColor,colorThree: UIColor) {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds

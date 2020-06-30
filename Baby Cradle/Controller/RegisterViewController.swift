@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
         
         /// Style Views
         view.setGradientBackground(colorOne: K.BrandColors.darkPurple, colorTwo: K.BrandColors.turquoise)
-        registerView.setTrioGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
+        registerView.setTripleGradientBackground(colorOne: K.BrandColors.purple, colorTwo: K.BrandColors.beige, colorThree: K.BrandColors.lightBlue)
         registerButton.setGradientBackground(colorOne: K.BrandColors.lightPurple, colorTwo: K.BrandColors.blueGreen)
         
         /// Corner Radius for IBOutlets
