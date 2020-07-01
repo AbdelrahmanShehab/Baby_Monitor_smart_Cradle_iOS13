@@ -23,13 +23,16 @@
 		632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632D3E692454615B0061A531 /* LaunchScreen.storyboard */; };
 		634BCBD32482E6670020A6DE /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634BCBD22482E6660020A6DE /* MainNavigationViewController.swift */; };
 		634F9D67246EC90D0079AB99 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D66246EC90D0079AB99 /* MusicViewController.swift */; };
-		634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */; };
-		634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634F9D6C246EEA390079AB99 /* Cradle.mp3 */; };
 		634F9D6F246F099F0079AB99 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634F9D6E246F099F0079AB99 /* MusicModel.swift */; };
 		635FFF832470490C00C91C16 /* MathX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635FFF822470490C00C91C16 /* MathX.swift */; };
 		636D26242472AA5D00241749 /* ButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26232472AA5D00241749 /* ButtonX.swift */; };
 		636D26262472B25A00241749 /* AlertX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26252472B25A00241749 /* AlertX.swift */; };
 		636D26282472B7BA00241749 /* ImageX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D26272472B7BA00241749 /* ImageX.swift */; };
+		63753E4024AD1F6400FB78F4 /* Pretty Little Horses.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63753E3B24AD1F6400FB78F4 /* Pretty Little Horses.mp3 */; };
+		63753E4124AD1F6400FB78F4 /* Rockabye Baby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63753E3C24AD1F6400FB78F4 /* Rockabye Baby.mp3 */; };
+		63753E4324AD1F6400FB78F4 /* Twinkle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63753E3E24AD1F6400FB78F4 /* Twinkle.mp3 */; };
+		63753E4424AD1F6400FB78F4 /* Lullaby Goodnight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63753E3F24AD1F6400FB78F4 /* Lullaby Goodnight.mp3 */; };
+		63753E4624AD21D600FB78F4 /* Johnsons Baby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63753E4524AD21D600FB78F4 /* Johnsons Baby.mp3 */; };
 		63812868247EF61B00FEC5BB /* Baby Crying.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63812867247EF61B00FEC5BB /* Baby Crying.wav */; };
 		6389336E2462D4E000694BDE /* LiveStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */; };
 		63C5CC922477226400438E21 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C5CC912477226400438E21 /* Song.swift */; };
@@ -62,13 +65,16 @@
 		632D3E6C2454615B0061A531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		634BCBD22482E6660020A6DE /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		634F9D66246EC90D0079AB99 /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
-		634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Baby Shark Doo Doo.mp3"; sourceTree = "<group>"; };
-		634F9D6C246EEA390079AB99 /* Cradle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cradle.mp3; sourceTree = "<group>"; };
 		634F9D6E246F099F0079AB99 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		635FFF822470490C00C91C16 /* MathX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathX.swift; sourceTree = "<group>"; };
 		636D26232472AA5D00241749 /* ButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonX.swift; sourceTree = "<group>"; };
 		636D26252472B25A00241749 /* AlertX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertX.swift; sourceTree = "<group>"; };
 		636D26272472B7BA00241749 /* ImageX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageX.swift; sourceTree = "<group>"; };
+		63753E3B24AD1F6400FB78F4 /* Pretty Little Horses.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Pretty Little Horses.mp3"; sourceTree = "<group>"; };
+		63753E3C24AD1F6400FB78F4 /* Rockabye Baby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Rockabye Baby.mp3"; sourceTree = "<group>"; };
+		63753E3E24AD1F6400FB78F4 /* Twinkle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Twinkle.mp3; sourceTree = "<group>"; };
+		63753E3F24AD1F6400FB78F4 /* Lullaby Goodnight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lullaby Goodnight.mp3"; sourceTree = "<group>"; };
+		63753E4524AD21D600FB78F4 /* Johnsons Baby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Johnsons Baby.mp3"; sourceTree = "<group>"; };
 		63812867247EF61B00FEC5BB /* Baby Crying.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Baby Crying.wav"; sourceTree = "<group>"; };
 		6389336D2462D4E000694BDE /* LiveStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamingViewController.swift; sourceTree = "<group>"; };
 		63C5CC912477226400438E21 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -97,9 +103,12 @@
 		631023D4246A0794005AC511 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				63753E4524AD21D600FB78F4 /* Johnsons Baby.mp3 */,
+				63753E3F24AD1F6400FB78F4 /* Lullaby Goodnight.mp3 */,
+				63753E3B24AD1F6400FB78F4 /* Pretty Little Horses.mp3 */,
+				63753E3C24AD1F6400FB78F4 /* Rockabye Baby.mp3 */,
+				63753E3E24AD1F6400FB78F4 /* Twinkle.mp3 */,
 				63812867247EF61B00FEC5BB /* Baby Crying.wav */,
-				634F9D68246EDFC00079AB99 /* Baby Shark Doo Doo.mp3 */,
-				634F9D6C246EEA390079AB99 /* Cradle.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -282,13 +291,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63753E4024AD1F6400FB78F4 /* Pretty Little Horses.mp3 in Resources */,
+				63753E4324AD1F6400FB78F4 /* Twinkle.mp3 in Resources */,
 				63812868247EF61B00FEC5BB /* Baby Crying.wav in Resources */,
 				632D3E6B2454615B0061A531 /* LaunchScreen.storyboard in Resources */,
 				63F20F31245AFE76001D6162 /* GoogleService-Info.plist in Resources */,
-				634F9D6A246EDFC10079AB99 /* Baby Shark Doo Doo.mp3 in Resources */,
+				63753E4624AD21D600FB78F4 /* Johnsons Baby.mp3 in Resources */,
 				632D3E682454615B0061A531 /* Assets.xcassets in Resources */,
+				63753E4124AD1F6400FB78F4 /* Rockabye Baby.mp3 in Resources */,
 				632D3E66245461590061A531 /* Main.storyboard in Resources */,
-				634F9D6D246EEA390079AB99 /* Cradle.mp3 in Resources */,
+				63753E4424AD1F6400FB78F4 /* Lullaby Goodnight.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

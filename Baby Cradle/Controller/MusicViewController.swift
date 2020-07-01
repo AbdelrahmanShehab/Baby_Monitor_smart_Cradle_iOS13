@@ -37,11 +37,20 @@ class MusicViewController: UIViewController {
     func configureSongs()
     {
         playList.append(Song(
-            name: "Cradle",
-            imageName: "cradle_artwork"))
+            name: "Johnsons Baby",
+            imageName: "JohnsonsBaby_Artwork"))
         playList.append(Song(
-            name: "Baby Shark Doo Doo",
-            imageName: "shark_artwork"))
+            name: "Lullaby Goodnight",
+            imageName:"LullabyGoodnight_Artwork"))
+        playList.append(Song(
+            name: "Pretty Little Horses",
+            imageName: "PrettyLittle_Artwork"))
+        playList.append(Song(
+            name: "Rockabye Baby",
+            imageName: "RockabyeBaby_Artwork"))
+        playList.append(Song(
+            name: "Twinkle",
+            imageName: "Twinkle_Artwork"))
     }
     
     //MARK: - Play/Pause ⏯
