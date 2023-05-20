@@ -1,8 +1,8 @@
-# Baby Monitor Smart Cradle
-
 ![output-onlinepngtools](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/527f4a51-f407-4b40-a9b6-e4a924503cfd)
 
-# Overview:
+# Baby Monitor Smart Cradle
+
+# Overview :
 
 Nowadays one of the most significant challenges that faces many families is baby care.
 Parents cannot continuously observe or monitor their babies all the time.
@@ -12,15 +12,15 @@ Thus, we have come up with an idea to design
 A Smart Cradle System using IOT which will help the Parents to monitor their child
 even if they are away from home & detect every activity of the Baby from any distant corner of the world.
 
-# Key Features:
+# Key Features :
 
-1- Measuring the Baby cradle temperature and humidity
-2- Displaying live video and audio
-3- Determine if the baby is awake or sleep
-4- Recording audio and music and playing it to the baby,
-5- Aability to listen to the baby noise through the sound detection and take actions.
+- Measuring the Baby cradle temperature and humidity
+- Displaying live video and audio
+- Determine if the baby is awake or sleep
+- Recording audio and music and playing it to the baby,
+- Aability to listen to the baby noise through the sound detection and take actions.
 
-# Screenshots: 
+# Screenshots : 
 
 ![smartmockups_lhv4lai4](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/cc0abbef-78a3-4467-aaab-dec3e84f18ef)
 
