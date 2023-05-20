@@ -16,9 +16,9 @@ even if they are away from home & detect every activity of the Baby from any dis
 
 - Measuring the Baby cradle temperature and humidity
 - Displaying live video and audio
-- Determine if the baby is awake or sleep
+- Determine if the baby is awake or asleep
 - Recording audio and music and playing it to the baby,
-- Aability to listen to the baby noise through the sound detection and take actions.
+- Ability to listen to the baby's noise through sound detection and take action.
 
 # Videos :
 
