@@ -20,6 +20,11 @@ even if they are away from home & detect every activity of the Baby from any dis
 - Recording audio and music and playing it to the baby,
 - Aability to listen to the baby noise through the sound detection and take actions.
 
+# Videos :
+
+### [Project Video 1](https://youtu.be/0z51_zfzCm4)
+### [Project Viedo 2](https://www.youtube.com/watch?v=xDjH3C_ZAiM)
+
 # Screenshots : 
 
 ![smartmockups_lhv4lai4](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/cc0abbef-78a3-4467-aaab-dec3e84f18ef)
