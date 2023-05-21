@@ -29,7 +29,6 @@ even if they are away from home & detect every activity of the Baby from any dis
 
 ![smartmockups_lhv4lai4](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/cc0abbef-78a3-4467-aaab-dec3e84f18ef)
 
-![smartmockups_lhv51jfq](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/b4c4c44e-aa8e-4e3a-ae97-59401b707337)
 
 ![smartmockups_lhv4gesa](https://github.com/AbdelrahmanShehab/Baby_Monitor_smart_Cradle_iOS13/assets/36604938/02f0ddbf-bb85-4cc5-9831-c703d23ff3d3)
 
